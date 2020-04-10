@@ -16,7 +16,7 @@ function CustomDrawerContent(props, navigation) {
     <DrawerContentScrollView {...props}>
       <View style={{ alignItems: 'center' }}>
         <Image source={require('./src/img/triangulo.png')}
-          style={{ width: 100, height: 100, color: 'black' }}>
+          style={{ width: 100, height: 100}}>
         </Image>
         <Text>Teste</Text>
       </View>
@@ -114,6 +114,7 @@ function MyDrawer() {
       <Drawer.Screen name="LosanguloVazado2" component={Home}  initialParams={{ number: 5  }}/>
       <Drawer.Screen name="Losangulo3" component={Home}  initialParams={{ number: 5  }}/>
       <Drawer.Screen name="LosanguloVazado3" component={Home}  initialParams={{ number: 5  }}/>
+      <Drawer.Screen name="LosanguloVazado4" component={Home}  initialParams={{ number: 5  }}/>
 
     </Drawer.Navigator>
   );

@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 
 import Header from '../components/Header'
-import Imagem from '../components/Image'
 import Plano from '../components/Plano'
 
 

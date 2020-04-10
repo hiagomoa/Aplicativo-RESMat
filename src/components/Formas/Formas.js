@@ -7,77 +7,77 @@ const Triangulo = styled.View`
         height: 0;
         background-color: transparent;
         border-style: solid;
-        border-left-width: 100;
-        border-right-width: 100;
-        border-bottom-width: 200;
+        border-left-width: 100px;
+        border-right-width: 100px;
+        border-bottom-width: 200px;
         border-left-color: transparent;
         border-right-color: transparent;
         border-bottom-color: #C7C7C7;
 `;
 const Quadrado= styled.View`
-        width: 150;   
-        height: 150;
+        width: 150px;   
+        height: 150px;
         background-color: #C7C7C7;   
 `;
 //(100/2)
 const Circulo= styled.View`  
-        width: 100;
-        height: 100;
-        border-radius: 50;
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
         background-color: #FF0000;
 `;
 
 const Trapezio= styled.View`
-    width: 200;
-    height: 0;
-    border-bottom-width: 100;
+    width: 200px;
+    height: 0px;
+    border-bottom-width: 100px;
     border-bottom-color: red;
-    border-left-width: 50;
+    border-left-width: 50px;
     border-left-color: transparent;
-    border-right-width: 50;
+    border-right-width: 50px;
     border-right-color: transparent;
     border-style: solid;
     `;
 
 //#region Hexagono
   const Hexagono= styled.View`
-    width: 100;
-    height: 55;
+    width: 100px;
+    height: 55px;
     `;
   
   const HexagonoInner= styled.View`
-    width: 100;
-    height: 55;
+    width: 100px;
+    height: 55px;
     background-color: #FF0000;
     `;
 
   const HexagonoAfter= styled.View`
     position: absolute;
-    bottom: -25;
+    bottom: -25px;
     left: 0;
     width: 0;
     height: 0;
     border-style: solid;
-    border-left-width: 50;
+    border-left-width: 50px;
     border-left-color: transparent;
-    border-right-width: 50;
+    border-right-width: 50px;
     border-right-color: transparent;
-    border-top-width: 25;
+    border-top-width: 25px;
     border-top-color: #FF0000;
     `;
   
   const HexagonoBefore= styled.View`
     position: absolute;
-    top: -25;
+    top: -25px;
     left: 0;
     width: 0;
     height: 0;
     border-style: solid;
-    border-left-width: 50;
+    border-left-width: 50px;
     border-left-color: transparent;
-    border-right-width: 50;
+    border-right-width: 50px;
     border-right-color: transparent;
-    border-bottom-width: 25;
+    border-bottom-width: 25px;
     border-bottom-color: #FF0000;
     `;
 //#endregion
@@ -86,12 +86,12 @@ const Plano = styled.View`
       flex-direction: row;
       align-items: center;
       justify-content:center;
-      height: 300;
-      width: 300;
+      height: 300px;
+      width: 300px;
       border-left-color: #C7C7C7;
       border-bottom-color: #C7C7C7;
-      border-left-width:2;
-      border-bottom-width:2;
+      border-left-width:2px;
+      border-bottom-width:2px;
 `;  
 
 const Title = styled.Text`
