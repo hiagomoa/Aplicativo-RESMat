@@ -4,10 +4,10 @@ import {
     View,
     Text,
 } from 'react-native';
-
+import styled from 'styled-components/native'
 import Header from '../components/Header'
 import Plano from '../components/Plano'
-
+import InputText from '../components/Formas/Inputs'
 
 const styles = StyleSheet.create({
     container: {
@@ -23,10 +23,11 @@ const styles = StyleSheet.create({
     },
 })
 
-export default function Layout({route,navigation }) {
-    const {number} = route.params;
-    var teste = 'Hiago BURROOO'
-    
+
+export default function Layout({ route, navigation }) {
+    const { number } = route.params;
+
+
 
     return (
         <View style={styles.container}>
@@ -36,15 +37,16 @@ export default function Layout({route,navigation }) {
                 <View style={styles.cabeçalhoSombra}></View>
             </View>
 
-            <View style={{paddingTop: 30,alignItems:'center'}}> 
-                <Plano idnumber={JSON.stringify(number)}/>
+            <View style={{ paddingTop: 30, alignItems: 'center' }}>
+                <Plano idnumber={JSON.stringify(number)} />
                 <Text> {JSON.stringify(number)} </Text>
+
+
+                <InputText idnumber={JSON.stringify(number)} />
+
             </View>
-
-            <Text>{teste}</Text>
- 
-  
-
         </View>
+
+
     )
-}
+}       
