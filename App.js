@@ -10,6 +10,7 @@ import {
 import Home from './src/Telas/LayoutBase'
 import Imagem from './src/components/Image'
 
+
 function CustomDrawerContent(props, navigation) {
   return (
     <DrawerContentScrollView {...props}>
@@ -101,18 +102,18 @@ function MyDrawer() {
         backgroundColor: '#D8CBE1',
         width: 300,
       }}>
-      <Drawer.Screen name="Triangulo" component={Home} />
-      <Drawer.Screen name="TrianguloVazado" component={Home} />
-      <Drawer.Screen name="Circulo" component={Home} />
-      <Drawer.Screen name="CirculoVazado" component={Home} />
-      <Drawer.Screen name="Quadrado" component={Home} />
-      <Drawer.Screen name="QuadradoVazado" component={Home} />
-      <Drawer.Screen name="Trapezio" component={Home} />
-      <Drawer.Screen name="TrapezioVazado" component={Home} />
-      <Drawer.Screen name="Losangulo2" component={Home} />
-      <Drawer.Screen name="LosanguloVazado2" component={Home} />
-      <Drawer.Screen name="Losangulo3" component={Home} />
-      <Drawer.Screen name="LosanguloVazado3" component={Home} />
+      <Drawer.Screen name="Triangulo" component={Home} initialParams={{ number: 1  }}/>
+      <Drawer.Screen name="TrianguloVazado" component={Home} initialParams={{ number: 1  }}/>
+      <Drawer.Screen name="Circulo" component={Home} initialParams={{ number: 3  }}/>
+      <Drawer.Screen name="CirculoVazado" component={Home} initialParams={{ number: 3  }}/>
+      <Drawer.Screen name="Quadrado" component={Home} initialParams={{ number: 2  }}/>
+      <Drawer.Screen name="QuadradoVazado" component={Home} initialParams={{ number: 2  }} />
+      <Drawer.Screen name="Trapezio" component={Home}  initialParams={{ number: 4  }}/>
+      <Drawer.Screen name="TrapezioVazado" component={Home}  initialParams={{ number: 4  }}/>
+      <Drawer.Screen name="Losangulo2" component={Home}  initialParams={{ number: 5  }}/>
+      <Drawer.Screen name="LosanguloVazado2" component={Home}  initialParams={{ number: 5  }}/>
+      <Drawer.Screen name="Losangulo3" component={Home}  initialParams={{ number: 5  }}/>
+      <Drawer.Screen name="LosanguloVazado3" component={Home}  initialParams={{ number: 5  }}/>
 
     </Drawer.Navigator>
   );
@@ -120,10 +121,12 @@ function MyDrawer() {
 
 export default function App() {
   return (
+
     <NavigationContainer>
 
       <MyDrawer />
     </NavigationContainer>
+
   );
 }
 

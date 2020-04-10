@@ -7,6 +7,8 @@ import {
 
 import Header from '../components/Header'
 import Imagem from '../components/Image'
+import Plano from '../components/Plano'
+
 
 const styles = StyleSheet.create({
     container: {
@@ -22,15 +24,27 @@ const styles = StyleSheet.create({
     },
 })
 
-export default function Layout() {
+export default function Layout({route,navigation }) {
+    const {number} = route.params;
+    var teste = 'Hiago BURROOO'
+    
+
     return (
         <View style={styles.container}>
-            
-            <Header />
-            <View style={styles.cabeçalhoSombra}>
-            
+
+            <View>
+                <Header />
+                <View style={styles.cabeçalhoSombra}></View>
             </View>
-            
+
+            <View style={{paddingTop: 30,alignItems:'center'}}> 
+                <Plano idnumber={JSON.stringify(number)}/>
+                <Text> {JSON.stringify(number)} </Text>
+            </View>
+
+            <Text>{teste}</Text>
+ 
+  
 
         </View>
     )
