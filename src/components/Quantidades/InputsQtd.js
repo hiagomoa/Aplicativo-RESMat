@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Button } from 'react-native';
 import styled from 'styled-components/native'
+import { connect } from 'react-redux'
+
 
 const InputText = styled.TextInput`
     height: 40px;
@@ -34,11 +36,21 @@ const styles = StyleSheet.create({
 
 })
 
-export default class Triangulo extends React.Component {
+
+class Triangulo extends React.Component {
+
   state = {
-    count1: '',
-    count2: ''
+    count1: 30,
+    count2: 'FOIIIIIIIIIII '
   }
+
+  handleAdd = product => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ADD_NUMBER',
+      product
+    });
+  };
   render() {
     return (
       <View style={{ flexDirection: 'row' }}>
@@ -62,10 +74,15 @@ export default class Triangulo extends React.Component {
             </InputText>
           </StyledView>
         </View>
+        <View style={{ height: 50, paddingLeft: 20 }}>
+          <Button title="ENVIAR" onPress={() => this.handleAdd(this.state)} />
+        </View>
+
 
       </View>
+
     )
   }
 }
 
-
+export default connect()(Triangulo)

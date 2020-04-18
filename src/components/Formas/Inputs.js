@@ -4,9 +4,11 @@ import { Text, View, StyleSheet } from 'react-native';
 import styled from 'styled-components/native'
 import InputsQtdd from '../Quantidades/InputsQtd'
 
+import { connect } from 'react-redux'
 
 
-export default class Formas extends Component {
+
+class Formas extends Component {
   state = {
     input1: '',
     input2: '',
@@ -16,13 +18,22 @@ export default class Formas extends Component {
 
 
   render() {
+
+    console.log(this.props.EstadoInput);
+
     return (
+
       <View>
         {this.state.opcao === '1' && <View>
           <InputsQtdd />
           <Text>AIIIIIIIIII beleza?</Text>
         </View>}
       </View>
+
     )
   }
 }
+
+export default connect(state => ({
+  EstadoInput: state.numberInput
+}))(Formas);
