@@ -8,32 +8,34 @@ import { connect } from 'react-redux'
 
 
 
-class Formas extends Component {
+class Inputs extends Component {
   state = {
     input1: '',
     input2: '',
-    opcao: this.props.idnumber
 
   }
 
 
   render() {
 
-    console.log(this.props.EstadoInput);
-
     return (
-
       <View>
-        {this.state.opcao === '1' && <View>
-          <InputsQtdd />
-          <Text>AIIIIIIIIII beleza?</Text>
-        </View>}
-      </View>
+        {this.props.idnumber === '1' &&
+          <InputsQtdd idescolha='1' />
+        }
+        {this.props.idnumber === '2' || this.props.idnumber === '3'|| this.props.idnumber === '5' ?
+          <InputsQtdd idescolha='2' /> : false
+        }
 
+        {this.props.idnumber === '4' &&
+          <InputsQtdd idescolha='3' />
+        }
+   
+      </View>
     )
   }
 }
 
 export default connect(state => ({
   EstadoInput: state.numberInput
-}))(Formas);
+}))(Inputs);

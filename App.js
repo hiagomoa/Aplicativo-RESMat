@@ -65,27 +65,27 @@ function CustomDrawerContent(props, navigation) {
 
         <View style={{ paddingTop: 20 }}>
           <DrawerItem icon={() => <Imagem link={require("./src/img/losangulo.png")}  ></Imagem>} labelIcon={{ marginRigth: -10 }}
-            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('Losangulo2')} />
+            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('hexagono2')} />
         </View>
 
         <View style={{ paddingTop: 20 }}>
           <DrawerItem icon={() => <Imagem link={require("./src/img/losanguloVazado.png")}  ></Imagem>} labelIcon={{ marginRigth: -10 }}
-            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('LosanguloVazado2')} />
+            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('hexagonoVazado2')} />
         </View>
 
         <View style={{ paddingTop: 20 }}>
           <DrawerItem icon={() => <Imagem link={require("./src/img/losangulo.png")}  ></Imagem>} labelIcon={{ marginRigth: -10 }}
-            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('Losangulo3')} />
+            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('hexagono3')} />
         </View>
 
         <View style={{ paddingTop: 20 }}>
           <DrawerItem icon={() => <Imagem link={require("./src/img/losanguloVazado.png")}  ></Imagem>} labelIcon={{ marginRigth: -10 }}
-            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('LosanguloVazado3')} />
+            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('hexagonoVazado3')} />
         </View>
 
         <View style={{ paddingTop: 20 }}>
           <DrawerItem icon={() => <Imagem link={require("./src/img/losanguloVazado.png")}  ></Imagem>} labelIcon={{ marginRigth: -10 }}
-            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('LosanguloVazado4')} />
+            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('hexagonoVazado4')} />
         </View>
 
       </View>
@@ -110,11 +110,11 @@ function MyDrawer() {
       <Drawer.Screen name="QuadradoVazado" component={Home} initialParams={{ number: 2 }} />
       <Drawer.Screen name="Trapezio" component={Home} initialParams={{ number: 4 }} />
       <Drawer.Screen name="TrapezioVazado" component={Home} initialParams={{ number: 4 }} />
-      <Drawer.Screen name="Losangulo2" component={Home} initialParams={{ number: 5 }} />
-      <Drawer.Screen name="LosanguloVazado2" component={Home} initialParams={{ number: 5 }} />
-      <Drawer.Screen name="Losangulo3" component={Home} initialParams={{ number: 5 }} />
-      <Drawer.Screen name="LosanguloVazado3" component={Home} initialParams={{ number: 5 }} />
-      <Drawer.Screen name="LosanguloVazado4" component={Home} initialParams={{ number: 5 }} />
+      <Drawer.Screen name="hexagono2" component={Home} initialParams={{ number: 5 }} />
+      <Drawer.Screen name="hexagonoVazado2" component={Home} initialParams={{ number: 5 }} />
+      <Drawer.Screen name="hexagono3" component={Home} initialParams={{ number: 5 }} />
+      <Drawer.Screen name="hexagonoVazado3" component={Home} initialParams={{ number: 5 }} />
+      <Drawer.Screen name="hexagonoVazado4" component={Home} initialParams={{ number: 5 }} />
 
     </Drawer.Navigator>
   );
