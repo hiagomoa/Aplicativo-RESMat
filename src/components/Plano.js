@@ -12,8 +12,8 @@ const Circulo = styled.View`
 `;
 const ViewDot= styled.View`
         position: absolute;
-        padding-left: ${props => (props.px ? props.px : '144')}px; /*Colcar como função, necessario x e y*/
-        padding-top: ${props => (props.py ? props.py : '170')}px; /*Colcar como função, necessario x e y*/
+        padding-left: ${props => (props.px ? props.px : '144')}px; 
+        padding-top: ${props => (props.py ? props.py : '170')}px; 
 
 `;
 
@@ -44,6 +44,6 @@ const ViewDot= styled.View`
 
 
 export default connect(state => ({
-  EstadoInput: state.numberInput
+  EstadoInput: state.valoresModal
 }))(Plano);
 

@@ -105,28 +105,24 @@ class Formas extends React.Component {
         state = {
                 opcao: this.props.id,
         }
-
         render() {
+                
                 let a = this.props.estadoInput[0];
                 let count1 = 100, count2 = 200, count3 = 200, count4 = 200;
 
                 if (typeof a == 'object') {
-                        count1 = a.count1 ;
-                        count2 = a.count2 ;
-                        count3 = a.count3 ;
-                        count4 = a.count4 ;
+                        count1 = a.count1;
+                        count2 = a.count2;
+                        count3 = a.count3;
+                        count4 = a.count4;
                 }
                 let variavel
                 if (this.state.opcao === '3') { //teste para enviar ao circulo o count dividido por 2
                         variavel = parseInt(count1, 10)
                         variavel = variavel / 2;
-                       
                 }
-
-
                 return (
                         <Plano>
-
                                 {this.state.opcao === '1' && <Triangulo tam1={count1} tam2={count2} />}
                                 {this.state.opcao === '2' && <Quadrado tam={count1} />}
                                 {this.state.opcao === '3' && <Circulo tam1={count1} tam2={variavel} />}
@@ -137,15 +133,13 @@ class Formas extends React.Component {
                                         <HexagonoAfter />
                                 </Hexagono>
                                 }
-
                         </Plano>
-
                 );
         }
 }
 
 const mapState = state => ({
-        estadoInput: state.numberInput
+        estadoInput: state.enviaValor
 })
 
 export default connect(mapState)(Formas);

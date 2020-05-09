@@ -10,7 +10,6 @@ import {
 import Home from './src/Telas/LayoutBase'
 import Imagem from './src/components/Image'
 
-
 function CustomDrawerContent(props, navigation) {
   return (
     <DrawerContentScrollView {...props}>
@@ -122,18 +121,14 @@ function MyDrawer() {
 
 export default function App() {
   return (
-
     <NavigationContainer>
-
       <MyDrawer />
     </NavigationContainer>
-
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-
     paddingTop: 30,
     width: 200,
     alignItems: 'center',
@@ -142,9 +137,6 @@ const styles = StyleSheet.create({
     alignContent: 'stretch',
     alignSelf: 'center',
     justifyContent: 'space-around'
-
-
-
   },
   quadrados: {
     backgroundColor: '#C3ABD2',
@@ -154,9 +146,5 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 20,
   },
-
-
-
-
 })
 

@@ -27,11 +27,9 @@ const styles = StyleSheet.create({
 
 export default function Layout({ route, navigation }) {
     const { number } = route.params;
-
     return (
         <Provider store={store}>
             <View style={styles.container}>
-
                 <View>
                     <Header />
                     <View style={styles.cabeçalhoSombra}></View>
@@ -39,15 +37,11 @@ export default function Layout({ route, navigation }) {
 
                 <View style={{ paddingTop: 30, alignItems: 'center' }}>
                     <Plano idnumber={JSON.stringify(number)} />
-                   
-
-                    <View style={{paddingTop:20}}>
-                    <InputText idnumber={JSON.stringify(number)} />
+                    <View style={{ paddingTop: 20 }}>
+                        <InputText idnumber={JSON.stringify(number)} />
                     </View>
-
                 </View>
             </View>
-
         </Provider>
     )
 }       
