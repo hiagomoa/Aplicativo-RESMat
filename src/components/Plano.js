@@ -1,44 +1,44 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Image, Dimensions } from 'react-native';
 import Forma from './Formas/Formas';
 import styled from 'styled-components/native';
 import { connect } from 'react-redux';
 
-const Circulo = styled.View`  
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-        background-color: #FFFFFF;
-`;
-const ViewDot= styled.View`
-        position: absolute;
-        padding-left: ${props => (props.px ? props.px : '144')}px; 
-        padding-top: ${props => (props.py ? props.py : '170')}px; 
+
+const ViewDot = styled.View`
+        
+        position: relative;
+        padding-left: ${props => (props.px ? props.px : '0')}px; 
+        top: ${props => (props.py ? props.py : '0')}px; 
 
 `;
 
- class Plano extends Component {
+class Plano extends Component {
   render() {
-    let posicao= this.props.EstadoInput[0];
-    let X=130, Y=130;
+    let posicao = this.props.EstadoInput[0];
+    let X = 0, Y = 0;
+
+    if (typeof posicao === 'object') {
+      X = posicao.CenterX;
+      Y = -1*parseInt(posicao.CenterY);
+    }
+
+    return (
+      <View style={{ width: Dimensions.get("window").width, height: Dimensions.get("window").height / 2 }} >
+        
+        <View style={{position: 'absolute', paddingLeft: 50,paddingTop: 10}}>
+          <Forma id={this.props.idnumber} />
+        </View>
+        <ViewDot  px={X} py={Y}>
+          <Image source={require('../img/plano_cartesiano.png')}
+            style={{width: 250, height: 250 }}>
+          </Image>
+        </ViewDot>
 
     
-    if(typeof posicao==='object'){
-        X=posicao.CenterX;
-        Y=posicao.CenterY;
-    }
-  
-    return(
-      <View >  
-          <View >
-            <Forma id={this.props.idnumber}/>
-          </View>
-          <ViewDot  px={X} py={Y}>
-            <Circulo/>
-          </ViewDot>
 
       </View>
-    ) ;
+    );
   }
 }
 

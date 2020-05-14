@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 import styled from 'styled-components/native'
 import { connect } from 'react-redux'
 
@@ -106,23 +106,30 @@ class Formas extends React.Component {
                 opcao: this.props.id,
         }
         render() {
-                
-                let a = this.props.estadoInput[0];
+
                 let count1 = 100, count2 = 200, count3 = 200, count4 = 200;
 
-                if (typeof a == 'object') {
-                        count1 = a.count1;
-                        count2 = a.count2;
-                        count3 = a.count3;
-                        count4 = a.count4;
+                if (typeof this.props.estadoInputCount1[0] != "undefined") {
+                        count1 = this.props.estadoInputCount1[0];
                 }
+                if (typeof this.props.estadoInputCount2[0] != "undefined") {
+                        count2 = this.props.estadoInputCount2[0];
+                };
+                if (typeof this.props.estadoInputCount3[0] != "undefined") {
+                        count3 = this.props.estadoInputCount3[0];
+                }
+                if (typeof this.props.estadoInputCount4[0] != "undefined") {
+                        count4 = this.props.estadoInputCount4[0];
+                }
+
                 let variavel
                 if (this.state.opcao === '3') { //teste para enviar ao circulo o count dividido por 2
                         variavel = parseInt(count1, 10)
                         variavel = variavel / 2;
                 }
                 return (
-                        <Plano>
+
+                        <View>
                                 {this.state.opcao === '1' && <Triangulo tam1={count1} tam2={count2} />}
                                 {this.state.opcao === '2' && <Quadrado tam={count1} />}
                                 {this.state.opcao === '3' && <Circulo tam1={count1} tam2={variavel} />}
@@ -133,13 +140,17 @@ class Formas extends React.Component {
                                         <HexagonoAfter />
                                 </Hexagono>
                                 }
-                        </Plano>
+                        </View>
+
                 );
         }
 }
 
 const mapState = state => ({
-        estadoInput: state.enviaValor
+        estadoInputCount1: state.count1,
+        estadoInputCount2: state.count2,
+        estadoInputCount3: state.count3,
+        estadoInputCount4: state.count4
 })
 
 export default connect(mapState)(Formas);

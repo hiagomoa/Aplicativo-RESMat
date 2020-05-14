@@ -35,9 +35,9 @@ export default function Layout({ route, navigation }) {
                     <View style={styles.cabeçalhoSombra}></View>
                 </View>
 
-                <View style={{ paddingTop: 30, alignItems: 'center' }}>
+                <View style={{ paddingTop: 50, alignItems: 'center' }}>
                     <Plano idnumber={JSON.stringify(number)} />
-                    <View style={{ paddingTop: 20 }}>
+                    <View style={{ paddingTop: 5 }}>
                         <InputText idnumber={JSON.stringify(number)} />
                     </View>
                 </View>

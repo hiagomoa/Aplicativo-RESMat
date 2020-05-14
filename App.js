@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
-  DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
 import Home from './src/Telas/LayoutBase'
@@ -13,11 +14,10 @@ import Imagem from './src/components/Image'
 function CustomDrawerContent(props, navigation) {
   return (
     <DrawerContentScrollView {...props}>
-      <View style={{ alignItems: 'center' }}>
-        <Image source={require('./src/img/triangulo.png')}
+      <View style={{ alignItems: 'center'}}>
+        <Image source={require('./src/img/icon_vetor.png')}
           style={{ width: 100, height: 100 }}>
         </Image>
-        <Text>Teste</Text>
       </View>
 
       <View style={styles.container}>

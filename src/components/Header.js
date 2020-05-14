@@ -36,7 +36,7 @@ export default function Header(){
     return(
     <View>
         <View style={styles.cabeçalho}>
-            <Text style={styles.texto}> Visual Computação </Text>
+            <Text style={styles.texto}> Geotroid </Text>
         </View>
         <View style={styles.cabeçalhoSombra} />
     </View>

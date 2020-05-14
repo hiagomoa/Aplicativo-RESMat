@@ -30,15 +30,48 @@ class InputTexto extends React.Component {
     count3: 100,
     count4: 100,
   }
-  handleAdd = valor => {
+  handleAddCount1 = valor => {
     const { dispatch } = this.props;
-    if(valor != 'undefined'){
-    dispatch({
-      type: 'ADD_VALORES',
-      valor
-    });
-  }
+    if (valor != 'undefined') {
+      dispatch({
+        type: 'ADD_COUNT1',
+        valor
+      });
+    }
   };
+
+  handleAddCount2 = valor => {
+    const { dispatch } = this.props;
+    if (valor != 'undefined') {
+      dispatch({
+        type: 'ADD_COUNT2',
+        valor
+      });
+    }
+  };
+
+  handleAddCount3 = valor => {
+    const { dispatch } = this.props;
+    if (valor != 'undefined') {
+      dispatch({
+        type: 'ADD_COUNT3',
+        valor
+      });
+    }
+  };
+
+  handleAddCount4 = valor => {
+    const { dispatch } = this.props;
+    if (valor != 'undefined') {
+      dispatch({
+        type: 'ADD_COUNT4',
+        valor
+      });
+    }
+  };
+
+
+
   render() {
     return (
       <View>
@@ -50,56 +83,55 @@ class InputTexto extends React.Component {
                 keyboardType='numeric'
                 onChangeText={count1 => this.setState({ count1 })}
                 returnKeyType="go"
-                onSubmitEditing={()=> this.handleAdd(this.state)} >
-                  </InputText>
-                </StyledView>
-              </View>
+                onSubmitEditing={() => this.handleAddCount1(this.state.count1)} >
+              </InputText>
+            </StyledView>
+          </View>
         }
         {
-  this.props.count === 2 &&
-    <View style={{ flexDirection: 'row' }}>
-      <Text style={styles.EditingText} > {this.props.texto}= </Text>
-      <StyledView>
-        <InputText
-          keyboardType='numeric'
-          onChangeText={count2 => this.setState({ count2 })}
-          returnKeyType="go"
-          onSubmitEditing={()=> this.handleAdd(this.state)} >
-          
-        </InputText>
-      </StyledView>
-    </View>
-}
-{
-  this.props.count === 3 &&
-    <View style={{ flexDirection: 'row' }}>
-      <Text style={styles.EditingText} > {this.props.texto}= </Text>
-      <StyledView>
-        <InputText
-          keyboardType='numeric'
-          onChangeText={count3 => this.setState({ count3 })}
-          returnKeyType="go"
-          onSubmitEditing={()=> this.handleAdd(this.state)} >
-          
-        </InputText>
-      </StyledView>
-    </View>
-}
-{
-  this.props.count === 4 &&
-    <View style={{ flexDirection: 'row' }}>
-      <Text style={styles.EditingText} > {this.props.texto}= </Text>
-      <StyledView>
-        <InputText
-          keyboardType='numeric'
-          onChangeText={count4 => this.setState({ count4 })}
-          returnKeyType="go"
-          onSubmitEditing={()=> this.handleAdd(this.state)} >
-          
-        </InputText>
-      </StyledView>
-    </View>
-}
+          this.props.count === 2 &&
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={styles.EditingText} > {this.props.texto}= </Text>
+            <StyledView>
+              <InputText
+                keyboardType='numeric'
+                onChangeText={count2 => this.setState({ count2 })}
+                returnKeyType="go"
+                onSubmitEditing={() => this.handleAddCount2(this.state.count2)} >
+
+              </InputText>
+            </StyledView>
+          </View>
+        }
+        {
+          this.props.count === 3 &&
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={styles.EditingText} > {this.props.texto}= </Text>
+            <StyledView>
+              <InputText
+                keyboardType='numeric'
+                onChangeText={count3 => this.setState({ count3 })}
+                returnKeyType="go"
+                onSubmitEditing={() => this.handleAddCount3(this.state.count3)} >
+
+              </InputText>
+            </StyledView>
+          </View>
+        }
+        {
+          this.props.count === 4 &&
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={styles.EditingText} > {this.props.texto}= </Text>
+            <StyledView>
+              <InputText
+                keyboardType='numeric'
+                onChangeText={count4 => this.setState({ count4 })}
+                returnKeyType="go"
+                onSubmitEditing={() => this.handleAddCount4(this.state.count4)} >
+              </InputText>
+            </StyledView>
+          </View>
+        }
       </View >
     );
   }
