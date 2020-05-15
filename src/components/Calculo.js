@@ -4,33 +4,29 @@ import { connect } from 'react-redux';
 
 class Calculo extends React.Component {
     state = {
-        resultado: 0,
+        resultadoCentroidX: ' ',
+        resultadoCentroidY: ' ',
+        resultadoMomento: 0,
         flag: 0
     }
-    chamaRedux = valor => {
-        const { dispatch } = this.props;
-        
-        
-        dispatch({
-            type: 'ADD_RESULT',
-            valor
-        });
-    }
 
-    setarResultado = (valor) => {
 
-        if (valor != this.state.resultado) {
-            this.setState({ resultado: valor })
+    setarResultado = (resCentX, resCentY, resMoment) => {
+
+            if(resCentX!= this.state.resultadoCentroidX || resCentY!=this.state.resultadoCentroidY || resMoment!= this.state.resultadoMomento){
+            this.setState({ resultadoCentroidX: resCentX })
+            this.setState({ resultadoCentroidY: resCentY })
+            this.setState({ resultadoMomento: resMoment })
             this.setState({ flag: 1 })
-        }
+            }
     }
 
     verificacaoAntiLoop = valor => {
 
         if (valor === 1) {
-            
+
             this.props.funcao(1);
-            this.props.funcao2(this.state.resultado);
+            this.props.funcao2(this.state.resultadoCentroidX, this.state.resultadoCentroidY, this.state.resultadoMomento);
             this.setState({ flag: 2 })
         }
     }
@@ -38,7 +34,9 @@ class Calculo extends React.Component {
     render() {
 
         let count1 = 100, count2 = 200, count3 = 200, count4 = 200;
-
+        let x, y, momento;
+        let centerX = parseInt(this.props.valor[0].CenterX);
+        let centerY = parseInt(this.props.valor[0].CenterY);
         if (typeof this.props.estadoInputCount1[0] != "undefined") {
             count1 = parseInt(this.props.estadoInputCount1[0]);
         }
@@ -53,10 +51,43 @@ class Calculo extends React.Component {
         }
 
         if (this.props.id == 1) {
-            this.setarResultado(count1)
+            x = (count1 / 2);
+            y = (count2 / 3);
         }
 
-        this.chamaRedux(this.state.resultado);
+        if (this.props.id == 2) {
+            if (centerX != 0) {
+
+                x = (count1 / 2);
+                x = centerX + x;
+                
+                console.log('xxxxxxxx ' + x)
+            }
+            if (centerY != 0) {
+ 
+                y = (count1 / 2);
+                y = centerY + y;
+                
+                console.log('111111111 ' + y)
+            }
+            if(centerX == 0){
+                x = (count1/2)
+            }
+            if(centerY == 0){
+                y = (count1/2)
+            }
+            momento = (Math.pow(count1, 4)) / 12;
+
+        }
+
+        if (this.props.id == 3) {
+            x = y = (count1) / 2;
+            momento = (Math.PI * Math.pow(count1, 4)) / 64;
+        }
+
+
+        this.setarResultado(x, y, momento);
+
         this.verificacaoAntiLoop(this.state.flag);
         return (
             <View>
@@ -68,7 +99,8 @@ const mapState = state => ({
     estadoInputCount1: state.count1,
     estadoInputCount2: state.count2,
     estadoInputCount3: state.count3,
-    estadoInputCount4: state.count4
+    estadoInputCount4: state.count4,
+    valor: state.valoresModal,
 })
 
 export default connect(mapState)(Calculo);

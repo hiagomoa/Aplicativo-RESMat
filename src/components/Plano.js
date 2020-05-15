@@ -19,8 +19,8 @@ class Plano extends Component {
     let X = 0, Y = 0;
 
     if (typeof posicao === 'object') {
-      X = posicao.CenterX;
-      Y = -1*parseInt(posicao.CenterY);
+      X = -1*parseInt(posicao.CenterX);
+      Y = parseInt(posicao.CenterY);
     }
 
     return (
@@ -33,9 +33,7 @@ class Plano extends Component {
           <Image source={require('../img/plano_cartesiano.png')}
             style={{width: 250, height: 250 }}>
           </Image>
-        </ViewDot>
-
-    
+        </ViewDot>  
 
       </View>
     );

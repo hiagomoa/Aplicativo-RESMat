@@ -36,7 +36,7 @@ class InputsQtd extends React.Component {
       this.handleAdd(this.state);
     }
   }
-
+  
   render() {
     return (
       <View>
@@ -61,7 +61,7 @@ class InputsQtd extends React.Component {
         {this.props.idescolha === '2' &&
           <View style={{ flexDirection: 'column', alignItens: 'center' }}>
             <View style={{ alignItems: 'center' }}>
-              <InText count={1} texto='R'></InText>
+              <InText count={1} texto='D'></InText>
             </View>
 
             <View style={{ flex: 1, flexDirection: "row", alignContent: 'space-around', alignItems: 'stretch', }}>

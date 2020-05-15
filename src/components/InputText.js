@@ -71,7 +71,6 @@ class InputTexto extends React.Component {
   };
 
 
-
   render() {
     return (
       <View>

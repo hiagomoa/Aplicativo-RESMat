@@ -52,12 +52,7 @@ class ModalResultados extends React.Component {
     }
 
     render() {
-        let ResultRedux = 0
-
-        if (typeof this.props.estadoInput[0] != "undefined") {
-            ResultRedux = this.props.estadoInput[0]
-        }
-
+console.log('ouuuuuuuuuuuuuuuuuuuuuu' + this.props.resultCentX)
         return (
             <Modal
                 animationType="fade"
@@ -69,7 +64,9 @@ class ModalResultados extends React.Component {
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
                         <View style={styles.centeredView}>
-                            <Text style={{ fontFamily: 'OpenSans-Bold', fontSize: 20 }}>Centroide= {this.props.result}</Text>
+                            <Text style={{ fontSize: 20 }}> Centroide = {this.props.resultCentX}, {this.props.resultCentY}</Text>
+                            <Text style={{ fontSize: 20 }}> Momento = {this.props.resultMoment}</Text>
+                            
                         </View>
 
                         <View style={{ paddingTop: 40 }}>
