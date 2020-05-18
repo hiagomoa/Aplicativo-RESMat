@@ -51,8 +51,22 @@ class Calculo extends React.Component {
         }
 
         if (this.props.id == 1) {
-            x = (count1 / 2);
-            y = (count2 / 3);
+            if (centerX != 0) {
+                x = (count1 / 2);
+                x = centerX + x;
+            }
+            if (centerY != 0) {
+                y = (count1 / 3);
+                y = centerY + y;
+            }
+            if(centerX == 0){
+                x = (count1/2)
+            }
+            if(centerY == 0){
+                y = (count1/3)
+            }
+            momento= (count1*Math.pow(count2,3))/36;
+
         }
 
         if (this.props.id == 2) {
@@ -60,15 +74,13 @@ class Calculo extends React.Component {
 
                 x = (count1 / 2);
                 x = centerX + x;
-                
-                console.log('xxxxxxxx ' + x)
+
             }
             if (centerY != 0) {
  
                 y = (count1 / 2);
                 y = centerY + y;
-                
-                console.log('111111111 ' + y)
+
             }
             if(centerX == 0){
                 x = (count1/2)
@@ -77,15 +89,48 @@ class Calculo extends React.Component {
                 y = (count1/2)
             }
             momento = (Math.pow(count1, 4)) / 12;
-
         }
 
         if (this.props.id == 3) {
-            x = y = (count1) / 2;
+            if (centerX != 0) {
+
+                x = (count1 / 2);
+                x = centerX + x;
+
+            }
+            if (centerY != 0) {
+ 
+                y = (count1 / 2);
+                y = centerY + y;
+
+            }
+            if(centerX == 0){
+                x = (count1/2)
+            }
+            if(centerY == 0){
+                y = (count1/2)
+            }
             momento = (Math.PI * Math.pow(count1, 4)) / 64;
         }
 
+        if(this.props.id == 5) {
+            if (centerX != 0) {
+                x = (Math.sqrt(3) / 2)*count1;
+                x = centerX + x;
+            }
+            if (centerY != 0) {
+                y = (Math.sqrt(3) / 2)*count1;
+                y = centerY + y;
+            }
+            if(centerX == 0){
+                x = (Math.sqrt(3) / 2)*count1;
+            }
+            if(centerY == 0){
+                y = (Math.sqrt(3) / 2)*count1;
+            }
+            momento = (Math.PI * Math.pow(count1, 4)) / 64;
 
+        }
         this.setarResultado(x, y, momento);
 
         this.verificacaoAntiLoop(this.state.flag);

@@ -82,6 +82,7 @@ class InputTexto extends React.Component {
                 keyboardType='numeric'
                 onChangeText={count1 => this.setState({ count1 })}
                 returnKeyType="go"
+                maxLength={3}
                 onSubmitEditing={() => this.handleAddCount1(this.state.count1)} >
               </InputText>
             </StyledView>
@@ -96,6 +97,7 @@ class InputTexto extends React.Component {
                 keyboardType='numeric'
                 onChangeText={count2 => this.setState({ count2 })}
                 returnKeyType="go"
+                maxLength={3}
                 onSubmitEditing={() => this.handleAddCount2(this.state.count2)} >
 
               </InputText>
@@ -111,6 +113,7 @@ class InputTexto extends React.Component {
                 keyboardType='numeric'
                 onChangeText={count3 => this.setState({ count3 })}
                 returnKeyType="go"
+                maxLength={3}
                 onSubmitEditing={() => this.handleAddCount3(this.state.count3)} >
 
               </InputText>
@@ -126,6 +129,7 @@ class InputTexto extends React.Component {
                 keyboardType='numeric'
                 onChangeText={count4 => this.setState({ count4 })}
                 returnKeyType="go"
+                maxLength={3}
                 onSubmitEditing={() => this.handleAddCount4(this.state.count4)} >
               </InputText>
             </StyledView>
