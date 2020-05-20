@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native'
 import Header from '../components/Header'
-import Plano from '../components/Plano'
+import Plano from '../components/Plano/Plano'
 import InputText from '../components/Formas/Inputs'
 import { Provider } from 'react-redux'
 import store from '../store';

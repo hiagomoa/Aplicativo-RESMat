@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native'
+import { Text, View,Image } from 'react-native'
 import styled from 'styled-components/native'
 import { connect } from 'react-redux'
 
@@ -107,7 +107,7 @@ class Formas extends React.Component {
         }
         render() {
 
-                let count1 = 100, count2 = 200, count3 = 200, count4 = 200;
+                let count1 = 70, count2 = 120, count3 = 100, count4 = 100;
 
                 if (typeof this.props.estadoInputCount1[0] != "undefined") {
                         count1 = this.props.estadoInputCount1[0];
@@ -130,6 +130,7 @@ class Formas extends React.Component {
                 return (
 
                         <View>
+                                
                                 {this.state.opcao === '1' && <Triangulo tam1={count1} tam2={count2} />}
                                 {this.state.opcao === '2' && <Quadrado tam={count1} />}
                                 {this.state.opcao === '3' && <Circulo tam1={count1} tam2={variavel} />}

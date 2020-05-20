@@ -115,18 +115,18 @@ class Calculo extends React.Component {
 
         if(this.props.id == 5) {
             if (centerX != 0) {
-                x = (Math.sqrt(3) / 2)*count1;
+                x = count1;
                 x = centerX + x;
             }
             if (centerY != 0) {
-                y = (Math.sqrt(3) / 2)*count1;
+                y = Math.sqrt(3)*(count1/2);
                 y = centerY + y;
             }
             if(centerX == 0){
-                x = (Math.sqrt(3) / 2)*count1;
+                x = count1;
             }
             if(centerY == 0){
-                y = (Math.sqrt(3) / 2)*count1;
+                y = Math.sqrt(3)*(count1/2);
             }
             momento = (Math.PI * Math.pow(count1, 4)) / 64;
 
