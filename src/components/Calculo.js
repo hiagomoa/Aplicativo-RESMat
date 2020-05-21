@@ -35,9 +35,21 @@ class Calculo extends React.Component {
 
         let count1 = 100, count2 = 200, count3 = 200, count4 = 200;
         let x, y, momento;
-        let centerX = parseInt(this.props.valor[0].CenterX);
-        let centerY = parseInt(this.props.valor[0].CenterY);
+        let InputRedux = this.props.valor[0];
+        let centerX = 0;
+        let centerY = 0;
+
+        if (typeof InputRedux.CenterX != "undefined") {
+            console.log("entrou aki HIAGO");
+            centerX = parseInt(InputRedux.CenterX);
+        }
+        if (typeof InputRedux.CenterY != "undefined") {
+            console.log("entrou aki HIAGO222");
+            centerY = parseInt(InputRedux.CenterY);
+        }
+
         if (typeof this.props.estadoInputCount1[0] != "undefined") {
+            
             count1 = parseInt(this.props.estadoInputCount1[0]);
         }
         if (typeof this.props.estadoInputCount2[0] != "undefined") {

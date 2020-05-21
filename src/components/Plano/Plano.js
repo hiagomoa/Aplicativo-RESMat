@@ -112,21 +112,21 @@ class Plano extends Component {
 
     return (
       <View style={{ height: Dimensions.get("window").height / 2, alignItems: "center" }} >
-        {/*
-
-        <ViewDot px={X} py={Y}>
-          <Imagem px={eixoX} py={eixoY} source={require('../../img/planoCartesiano.png')} />
-        </ViewDot>
-        COLOCAR ISSO NO LAYOULT BASE DEPOIS
-*/}
+        {
+/*
+    <ViewDot px={X} py={Y}>
+    <Imagem px={eixoX} py={eixoY} source={require('../../img/planoCartesiano.png')} />
+    </ViewDot>
+    COLOCAR ISSO NO LAYOULT BASE DEPOIS
+*/      }
         <View style={{ alignItems: "center" }}>
           {this.state.flagButton1 == 1 &&
             <View style={{ paddingBottom: 40 }}>
               <BottonAdd param={1} func={this.setarFlag.bind(this)} />
             </View>
           }
-          {this.state.flagButton1 == 0  && <ModalAddForms param={1} func={this.setarFlagFigura.bind(this)} func2={this.setarModal.bind(this)}
-            func3={this.setarId.bind(this)} func4={this.setarFlag.bind(this)} />}
+          {this.state.flagButton1 == 0 && <ModalAddForms param={1} id={this.state.id1} func={this.setarFlagFigura.bind(this)} func2={this.setarModal.bind(this)}
+            func3={this.setarId.bind(this)} func4={this.setarFlag.bind(this)} func5={this.props.func.bind(this)} />}
           {this.state.flagFigura1 === 1 && <View><Forma id={this.state.id1} /></View>}
         </View>
 
@@ -138,8 +138,8 @@ class Plano extends Component {
                 <BottonAdd param={2} func={this.setarFlag.bind(this)} />
               </View>
             }
-            {this.state.flagButton2 == 0 && <ModalAddForms param={2} func={this.setarFlagFigura.bind(this)} func2={this.setarModal.bind(this)}
-              func3={this.setarId.bind(this)} func4={this.setarFlag.bind(this)} />}
+            {this.state.flagButton2 == 0 && <ModalAddForms param={2} id={this.state.id2} func={this.setarFlagFigura.bind(this)} func2={this.setarModal.bind(this)}
+              func3={this.setarId.bind(this)} func4={this.setarFlag.bind(this)} func5={this.props.func1.bind(this)} />}
             {this.state.flagFigura2 === 1 && <View><Forma id={this.state.id2} /></View>}
           </View>
 
@@ -155,8 +155,8 @@ class Plano extends Component {
                 <BottonAdd param={3} func={this.setarFlag.bind(this)} />
               </View>
             }
-            {this.state.flagButton3 == 0 && <ModalAddForms param={3} func={this.setarFlagFigura.bind(this)} func2={this.setarModal.bind(this)}
-              func3={this.setarId.bind(this)} func4={this.setarFlag.bind(this)} />}
+            {this.state.flagButton3 == 0 && <ModalAddForms param={3} id={this.state.id3} func={this.setarFlagFigura.bind(this)} func2={this.setarModal.bind(this)}
+              func3={this.setarId.bind(this)} func4={this.setarFlag.bind(this)} func5={this.props.func2.bind(this)} />}
             {this.state.flagFigura3 === 1 && <View><Forma id={this.state.id3} /></View>}
           </View>
 

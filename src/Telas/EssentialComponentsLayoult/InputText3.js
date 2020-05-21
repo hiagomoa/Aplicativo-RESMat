@@ -22,58 +22,57 @@ const StyledView = styled.View`
   elevation: 5;
 `;
 
-class InputTexto extends React.Component {
 
+class InputText3 extends React.Component {
 
+    state = {
+        count1: 100,
+        count2: 200,
+        count3: 100,
+        count4: 100,
+      }
+      handleAddCount1 = valor => {
+        const { dispatch } = this.props;
+        if (valor != 'undefined') {
+          dispatch({
+            type: 'INPUT_TEXT_3A',
+            valor
+          });
+        }
+      };
+    
+      handleAddCount2 = valor => {
+        const { dispatch } = this.props;
+        if (valor != 'undefined') {
+          dispatch({
+            type: 'INPUT_TEXT_3B',
+            valor
+          });
+        }
+      };
+    
+      handleAddCount3 = valor => {
+        const { dispatch } = this.props;
+        if (valor != 'undefined') {
+          dispatch({
+            type: 'INPUT_TEXT_3C',
+            valor
+          });
+        }
+      };
+    
+      handleAddCount4 = valor => {
+        const { dispatch } = this.props;
+        if (valor != 'undefined') {
+          dispatch({
+            type: 'INPUT_TEXT_3D',
+            valor
+          });
+        }
+      };
+    
 
-  state = {
-    count1: 100,
-    count2: 200,
-    count3: 100,
-    count4: 100,
-  }
-  handleAddCount1 = valor => {
-    const { dispatch } = this.props;
-    if (valor != 'undefined') {
-      dispatch({
-        type: 'ADD_COUNT1',
-        valor
-      });
-    }
-  };
-
-  handleAddCount2 = valor => {
-    const { dispatch } = this.props;
-    if (valor != 'undefined') {
-      dispatch({
-        type: 'ADD_COUNT2',
-        valor
-      });
-    }
-  };
-
-  handleAddCount3 = valor => {
-    const { dispatch } = this.props;
-    if (valor != 'undefined') {
-      dispatch({
-        type: 'ADD_COUNT3',
-        valor
-      });
-    }
-  };
-
-  handleAddCount4 = valor => {
-    const { dispatch } = this.props;
-    if (valor != 'undefined') {
-      dispatch({
-        type: 'ADD_COUNT4',
-        valor
-      });
-    }
-  };
-
-
-  render() {
+render() {
     return (
       <View>
         {this.props.count === 1 &&
@@ -141,7 +140,8 @@ class InputTexto extends React.Component {
     );
   }
 }
-export default connect()(InputTexto);
+
+export default connect()(InputText3);
 
 const styles = StyleSheet.create({
   EditingText: {

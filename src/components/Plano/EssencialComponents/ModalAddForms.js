@@ -89,6 +89,7 @@ export default class ModalAddForms extends React.Component {
                                     this.props.func(this.props.param);
                                     this.props.func2();
                                     this.props.func4(-1,this.props.param);
+                                    this.props.func5([1, this.props.id]);
                                 }}>
 
                                 <Text style={styles.textStyle}>OK</Text>
