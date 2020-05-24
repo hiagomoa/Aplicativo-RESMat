@@ -9,7 +9,7 @@ export default class CallInputs extends React.Component {
 
     render() {
         return (
-            <View>
+            <View style={{paddingTop: 5}}>
                 {this.props.idescolha === '1' &&
                     <View>
                         {this.props.param == 1 &&
@@ -47,7 +47,7 @@ export default class CallInputs extends React.Component {
                     </View>
                 }
 
-                {this.props.idescolha === '2' &&
+                {(this.props.idescolha === '2' || this.props.idescolha === '3'||this.props.idescolha === '5') &&
                     <View>
                         {this.props.param == 1 &&
                             <View style={{ flexDirection: 'column', alignItens: 'center' }}>
@@ -59,7 +59,7 @@ export default class CallInputs extends React.Component {
                     </View>
                 }
 
-                {this.props.idescolha === '2' &&
+                {(this.props.idescolha === '2' || this.props.idescolha === '3'||this.props.idescolha === '5') &&
                     <View>
                         {this.props.param == 2 &&
                             <View style={{ flexDirection: 'column', alignItens: 'center' }}>
@@ -71,7 +71,7 @@ export default class CallInputs extends React.Component {
                     </View>
                 }
 
-                {this.props.idescolha === '2' &&
+                {(this.props.idescolha === '2' || this.props.idescolha === '3'||this.props.idescolha === '5') &&
                     <View>
                         {this.props.param == 3 &&
                             <View style={{ flexDirection: 'column', alignItens: 'center' }}>
@@ -83,7 +83,7 @@ export default class CallInputs extends React.Component {
                     </View>
                 }
 
-                {this.props.idescolha === '3' &&
+                {this.props.idescolha === '4' &&
                     <View>
                         {this.props.param == 1 &&
                             <View>
@@ -103,7 +103,7 @@ export default class CallInputs extends React.Component {
                     </View>
                 }
 
-                {this.props.idescolha === '3' &&
+                {this.props.idescolha === '4' &&
                     <View>
                         {this.props.param == 2 &&
                             <View>
@@ -123,7 +123,7 @@ export default class CallInputs extends React.Component {
                     </View>
                 }
 
-                {this.props.idescolha === '3' &&
+                {this.props.idescolha === '4' &&
                     <View>
                         {this.props.param == 3 &&
                             <View>

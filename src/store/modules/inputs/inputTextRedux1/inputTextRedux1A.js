@@ -1,9 +1,11 @@
-export default function InputText1A(state = [], action) {
-
+export default function InputText1A(state = '', action) {
+   
     switch (action.type) {
         case 'INPUT_TEXT_1A':
-            return [action.valor];
+            return action.valor;
+        case 'RESET':
+                return [];
         default:
-            return [0];
+            return state;
     }
 }

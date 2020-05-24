@@ -1,9 +1,10 @@
-export default function InputText3C(state = [], action) {
-
+export default function InputText3C(state = '', action) {
+   
     switch (action.type) {
         case 'INPUT_TEXT_3C':
-            return [action.valor];
+            console.log('inputText3C  ' + action.valor)
+            return action.valor;
         default:
-            return [0];
+            return state;
     }
 }

@@ -17,7 +17,7 @@ export default class ModalAddForms extends React.Component {
     }
 
     render() {
-        console.log(this.props.param)
+        
         return (
             <Modal
                 animationType="fade"
@@ -32,7 +32,7 @@ export default class ModalAddForms extends React.Component {
                                 <View style={styles.quadrados}>
                                     <Touch
                                         onPress={() => {
-                                            console.log("clicou")
+                                            
                                             this.props.func3("1",this.props.param);
                                            
                                         }}>
@@ -42,7 +42,7 @@ export default class ModalAddForms extends React.Component {
                                 <View style={styles.quadrados}>
                                     <Touch
                                         onPress={() => {
-                                            console.log("clicou")
+                                            
                                             this.props.func3("3",this.props.param)
                                         }}>
                                         <Image style={{ width: 70, height: 70 }} source={require('../../../img/circulo.png')}></Image>
@@ -53,7 +53,7 @@ export default class ModalAddForms extends React.Component {
                                 <View style={styles.quadrados}>
                                     <Touch
                                         onPress={() => {
-                                            console.log("clicou")
+                                            
                                             this.props.func3("2",this.props.param)
                                         }}>
                                         <Image style={{ width: 65, height: 65 }} source={require('../../../img/quadrado.png')}></Image>
@@ -62,7 +62,7 @@ export default class ModalAddForms extends React.Component {
                                 <View style={styles.quadrados}>
                                     <Touch
                                         onPress={() => {
-                                            console.log("clicou")
+                                            
                                             this.props.func3("4",this.props.param)
                                         }}>
                                         <Image style={{ width: 70, height: 70 }} source={require('../../../img/trapezio.png')}></Image>
@@ -73,7 +73,7 @@ export default class ModalAddForms extends React.Component {
                                 <View style={styles.quadrados}>
                                     <Touch
                                         onPress={() => {
-                                            console.log("clicou")
+                                            
                                             this.props.func3("5",this.props.param)
                                         }}>
                                         <Image style={{ width: 70, height: 70 }} source={require('../../../img/losangulo.png')}></Image>

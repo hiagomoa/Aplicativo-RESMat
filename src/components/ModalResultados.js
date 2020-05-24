@@ -52,7 +52,13 @@ class ModalResultados extends React.Component {
     }
 
     render() {
-console.log('ouuuuuuuuuuuuuuuuuuuuuu' + this.props.resultCentX)
+let x =this.props.resultCentX;
+let xm = x.toFixed(2)
+let y =this.props.resultCentY;
+let ym = y.toFixed(2)
+let moment = this.props.resultMoment
+moment = moment.toFixed(2);
+
         return (
             <Modal
                 animationType="fade"
@@ -63,10 +69,9 @@ console.log('ouuuuuuuuuuuuuuuuuuuuuu' + this.props.resultCentX)
                 }}>
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <View style={styles.centeredView}>
-                            <Text style={{ fontSize: 20 }}> Centroide = {this.props.resultCentX}, {this.props.resultCentY}</Text>
-                            <Text style={{ fontSize: 20 }}> Momento = {this.props.resultMoment}</Text>
-                            
+                        <View style={{...styles.centeredView, flexDirection:"column"}}>
+                            <Text style={{ fontSize: 20 }}> Centroide = ({xm}, {ym})</Text>
+                            <Text style={{ fontSize: 20 }}> Momento = {moment}</Text>
                         </View>
 
                         <View style={{ paddingTop: 40 }}>

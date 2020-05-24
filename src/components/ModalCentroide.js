@@ -58,12 +58,13 @@ const styles = StyleSheet.create({
 
 })
 
+
+
 class ModalCentroide extends React.Component {
-  
-  state = {
+    state = {
     CenterX: 0,
     CenterY: 0,
-    visibilidadeModal: this.props.valor
+    visibilidadeModal: this.props.valor 
   }
 
   handleAdd = valor => {

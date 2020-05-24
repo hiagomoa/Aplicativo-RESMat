@@ -1,9 +1,10 @@
-export default function InputText3D(state = [], action) {
-
+export default function InputText3D(state = '', action) {
+    
     switch (action.type) {
         case 'INPUT_TEXT_3D':
-            return [action.valor];
+            console.log('inputText3D  ' + action.valor)
+            return action.valor;
         default:
-            return [0];
+            return state;
     }
 }

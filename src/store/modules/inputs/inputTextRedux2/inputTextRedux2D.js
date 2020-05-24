@@ -1,9 +1,10 @@
-export default function InputText2D(state = [], action) {
-
+export default function InputText2D(state = '', action) {
+    
     switch (action.type) {
         case 'INPUT_TEXT_2D':
-            return [action.valor];
+            console.log('inputText2D  ' + action.valor)
+            return action.valor;
         default:
-            return [0];
+            return state;
     }
 }

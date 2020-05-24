@@ -1,9 +1,9 @@
-export default function InputText3B(state = [], action) {
-
+export default function InputText3B(state = '', action) {
     switch (action.type) {
         case 'INPUT_TEXT_3B':
-            return [action.valor];
+            console.log('inputText3B  ' + action.valor)
+            return action.valor;
         default:
-            return [0];
+            return state;
     }
 }

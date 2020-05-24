@@ -63,7 +63,7 @@ export default class Centroid extends React.Component {
                 </Touch>
                 {this.state.flag === 1 &&
                     <View>
-                        <Calculo id={this.props.id} funcao={this.setarValorModalResult.bind(this)} funcao2={this.setarResultado.bind(this)}></Calculo>
+                        <Calculo id={this.props.id} id1={this.props.id1} id2={this.props.id2}  id3={this.props.id3} funcao={this.setarValorModalResult.bind(this)} funcao2={this.setarResultado.bind(this)}></Calculo>
                     </View>
                 }
                 {this.state.flagModalResult === 1 &&

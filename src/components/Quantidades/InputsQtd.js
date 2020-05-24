@@ -49,7 +49,7 @@ class InputsQtd extends React.Component {
 
             <View style={{ flex: 1, flexDirection: "row", alignContent: 'space-around', alignItems: 'stretch' }}>
               <Centroid func={this.componentDidUpdate.bind(this)} ></Centroid>
-              <Compute func={this.componentDidUpdate.bind(this)} id={this.props.id}></Compute>
+              <Compute func={this.componentDidUpdate.bind(this)} id={this.props.id} id1={this.props.id1} id2={this.props.id2} id3={this.props.id3}></Compute>
             </View>
 
             {this.state.modalVisible === true &&
@@ -66,7 +66,7 @@ class InputsQtd extends React.Component {
 
             <View style={{ flex: 1, flexDirection: "row", alignContent: 'space-around', alignItems: 'stretch', }}>
               <Centroid func={this.componentDidUpdate.bind(this)} ></Centroid>
-              <Compute func={this.componentDidUpdate.bind(this)} id={this.props.id}></Compute>
+              <Compute func={this.componentDidUpdate.bind(this)} id={this.props.id} id1={this.props.id1} id2={this.props.id2} id3={this.props.id3}></Compute>
             </View>
 
             {this.state.modalVisible === true &&
@@ -90,7 +90,7 @@ class InputsQtd extends React.Component {
 
               <View style={{ flex: 1, flexDirection: "row", alignContent: 'space-around', alignItems: 'stretch', }}>
                 <Centroid func={this.componentDidUpdate.bind(this)} ></Centroid>
-                  <Compute func={this.componentDidUpdate.bind(this)} id={this.props.id}></Compute>
+                  <Compute func={this.componentDidUpdate.bind(this)} id={this.props.id} id1={this.props.id1} id2={this.props.id2} id3={this.props.id3}></Compute>
               </View>
               </View>
 

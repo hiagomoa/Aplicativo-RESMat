@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, Image, Dimensions } from 'react-native';
+import { View, StyleSheet, Text, Image, Dimensions, TouchableOpacity } from 'react-native';
 import Forma from '../Formas/Formas';
+import Forma1 from '../Formas/Formas1';
+import Forma2 from '../Formas/Formas2';
+import Forma3 from '../Formas/Formas3';
 import styled from 'styled-components/native';
 import { connect } from 'react-redux';
 import BottonAdd from "./EssencialComponents/BottonAdd"
@@ -20,26 +23,33 @@ const Imagem = styled.Image`
       height: ${props => (props.py ? props.py : '0')}px;
 `;
 
+const initialState = {
+  flagButton1: 1,
+  flagButton2: 1,
+  flagButton3: 1,
+  id1: '',
+  id2: '',
+  id3: '',
+  flagFigura1: 0,
+  flagFigura2: 0,
+  flagFigura3: 0,
+  modalVisible: false,
+  FlagBolota: 0,
+}
+
 class Plano extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      flagButton1: 1,
-      flagButton2: 1,
-      flagButton3: 1,
-      id1: '',
-      id2: '',
-      id3: '',
-      flagFigura1: 0,
-      flagFigura2: 0,
-      flagFigura3: 0,
-      modalVisible: false,
-      FlagBolota: 0,
+      ...initialState
     };
   }
 
-
+  clearState = () => {
+    this.setState({ ...initialState });
+    this.props.func3();
+  }
   setarFlag = (Estado, tipo) => {
     if (tipo == 1) {
       this.setState({ flagButton1: Estado })
@@ -112,13 +122,6 @@ class Plano extends Component {
 
     return (
       <View style={{ height: Dimensions.get("window").height / 2, alignItems: "center" }} >
-        {
-/*
-    <ViewDot px={X} py={Y}>
-    <Imagem px={eixoX} py={eixoY} source={require('../../img/planoCartesiano.png')} />
-    </ViewDot>
-    COLOCAR ISSO NO LAYOULT BASE DEPOIS
-*/      }
         <View style={{ alignItems: "center" }}>
           {this.state.flagButton1 == 1 &&
             <View style={{ paddingBottom: 40 }}>
@@ -127,7 +130,7 @@ class Plano extends Component {
           }
           {this.state.flagButton1 == 0 && <ModalAddForms param={1} id={this.state.id1} func={this.setarFlagFigura.bind(this)} func2={this.setarModal.bind(this)}
             func3={this.setarId.bind(this)} func4={this.setarFlag.bind(this)} func5={this.props.func.bind(this)} />}
-          {this.state.flagFigura1 === 1 && <View><Forma id={this.state.id1} /></View>}
+          {this.state.flagFigura1 === 1 && <View><Forma1 id={this.state.id1} /></View>}
         </View>
 
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -140,7 +143,7 @@ class Plano extends Component {
             }
             {this.state.flagButton2 == 0 && <ModalAddForms param={2} id={this.state.id2} func={this.setarFlagFigura.bind(this)} func2={this.setarModal.bind(this)}
               func3={this.setarId.bind(this)} func4={this.setarFlag.bind(this)} func5={this.props.func1.bind(this)} />}
-            {this.state.flagFigura2 === 1 && <View><Forma id={this.state.id2} /></View>}
+            {this.state.flagFigura2 === 1 && <View><Forma2 id={this.state.id2} /></View>}
           </View>
 
           <View>
@@ -157,11 +160,17 @@ class Plano extends Component {
             }
             {this.state.flagButton3 == 0 && <ModalAddForms param={3} id={this.state.id3} func={this.setarFlagFigura.bind(this)} func2={this.setarModal.bind(this)}
               func3={this.setarId.bind(this)} func4={this.setarFlag.bind(this)} func5={this.props.func2.bind(this)} />}
-            {this.state.flagFigura3 === 1 && <View><Forma id={this.state.id3} /></View>}
+            {this.state.flagFigura3 === 1 && <View><Forma3 id={this.state.id3} /></View>}
           </View>
 
         </View>
-
+        <View style={{ paddingTop: 30 }}>
+          <View style={{ backgroundColor: "red", borderRadius: 20, width: 60, height: 30, alignItems: 'center' }}>
+            <TouchableOpacity onPress={this.clearState}>
+              <Text style={{ fontFamily: "" }}>CLEAR</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
 
       </View>
     );
