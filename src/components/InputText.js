@@ -40,6 +40,8 @@ class InputTexto extends React.Component {
         valor
       });
     }
+
+    this.SetarFlagPlano();
   };
 
   handleAddCount2 = valor => {
@@ -50,6 +52,8 @@ class InputTexto extends React.Component {
         valor
       });
     }
+
+    this.SetarFlagPlano();
   };
 
   handleAddCount3 = valor => {
@@ -60,6 +64,8 @@ class InputTexto extends React.Component {
         valor
       });
     }
+
+    this.SetarFlagPlano();
   };
 
   handleAddCount4 = valor => {
@@ -70,6 +76,16 @@ class InputTexto extends React.Component {
         valor
       });
     }
+
+    this.SetarFlagPlano();
+  };
+  SetarFlagPlano = () => {
+    let a = 0;
+    const { dispatch } = this.props;
+      dispatch({
+        type: 'ADD_FLAG_PLANO',
+        a
+    })
   };
 
 
@@ -85,7 +101,7 @@ class InputTexto extends React.Component {
                 onChangeText={count1 => this.setState({ count1 })}
                 returnKeyType="go"
                 maxLength={3}
-                onSubmitEditing={() => this.handleAddCount1(this.state.count1)} >
+                onSubmitEditing={() => this.handleAddCount1(this.state.count1)}>
               </InputText>
             </StyledView>
           </View>

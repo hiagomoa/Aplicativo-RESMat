@@ -18,7 +18,8 @@ export default class Centroid extends React.Component {
             resultado: '',
             resultadoCentroidX: 0,
             resultadoCentroidY: 0,
-            resultadoMomento: 0,
+            resultadoMomentoX: 0,
+            resultadoMomentoY: 0,
         };
     }
 
@@ -41,13 +42,12 @@ export default class Centroid extends React.Component {
             this.setState({ flagModalResult: op })
     }
 
-    setarResultado= (resultCentX,resultCentY,resultMoment) =>{
+    setarResultado= (resultCentX,resultCentY,resultMomentX,resultMomentY) =>{
             this.setState({resultadoCentroidX: resultCentX});
             this.setState({resultadoCentroidY: resultCentY});
-            this.setState({resultadoMomento: resultMoment});
+            this.setState({resultadoMomentoX: resultMomentX});
+            this.setState({resultadoMomentoY: resultMomentY});
     } 
-
-
 
     render() {
         return (
@@ -69,7 +69,7 @@ export default class Centroid extends React.Component {
                 {this.state.flagModalResult === 1 &&
                     <View>
                         <ModalResult func={this.setarVisibleModal.bind(this)} func2={this.setarValorModalResult.bind(this)} func3={this.MudarFlag.bind(this)} valor={true} 
-                            resultCentX={this.state.resultadoCentroidX} resultCentY={this.state.resultadoCentroidY} resultMoment={this.state.resultadoMomento}  ></ModalResult>
+                            resultCentX={this.state.resultadoCentroidX} resultCentY={this.state.resultadoCentroidY} resultMomentX={this.state.resultadoMomentoX} resultMomentY={this.state.resultadoMomentoY}  ></ModalResult>
                     </View>
                 }
             </View>

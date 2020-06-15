@@ -59,24 +59,55 @@ const styles = StyleSheet.create({
 })
 
 
-
+const initialState={
+CenterX: 0,
+CenterY: 0,
+visibilidadeModal: true
+}
 class ModalCentroide extends React.Component {
-    state = {
-    CenterX: 0,
-    CenterY: 0,
-    visibilidadeModal: this.props.valor 
+    
+  constructor(props) {
+    super(props);
+    this.state = {
+      CenterX: 0,
+      CenterY: 0,
+      visibilidadeModal: this.props.valor
+    };
   }
 
+  updateState=()=>{
+    console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP")
+    this.setState({initialState});
+    this.handleAdd2(initialState); 
+    console.log("AOOOOOOOOOOBAAAAABABBABABBABABBABABABBAbaBABABba")
+  }
   handleAdd = valor => {
     const { dispatch } = this.props;
     dispatch({
       type: 'ADD_MODAL_VALOR',
       valor
     });
+    this.SetarFlagPlano();
+  };
+  handleAdd2 = valor => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'RESET',
+      valor
+    });
+    this.SetarFlagPlano();
   };
 
-
+  SetarFlagPlano = () => {
+    let a = 0;
+    const { dispatch } = this.props;
+      dispatch({
+        type: 'ADD_FLAG_PLANO',
+        a
+    })
+  };
   trocaValor= estado =>{
+    console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
     this.setState({visibilidadeModal: estado})
   }
 
@@ -85,7 +116,10 @@ class ModalCentroide extends React.Component {
   }
 
   render() {
-    
+    console.log("\n 55555555555555555  " + this.props.Flag);
+    if (this.props.Flag == 1){
+      this.updateState();
+    }
     return (
       <Modal
         animationType="fade"
@@ -136,4 +170,8 @@ class ModalCentroide extends React.Component {
   }
 }
 
-export default connect()(ModalCentroide);
+
+
+  export default connect(state => ({
+    Flag: state.initialState
+  }))(ModalCentroide); 

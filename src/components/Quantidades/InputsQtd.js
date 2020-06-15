@@ -21,8 +21,16 @@ class InputsQtd extends React.Component {
       type: 'ADD_NUMBER',
       product
     });
+    this.SetarFlagPlano();
   };
-
+  SetarFlagPlano = () => {
+    let a = 0;
+    const { dispatch } = this.props;
+      dispatch({
+        type: 'ADD_FLAG_PLANO',
+        a
+    })
+  };
   trocaValorPai = () => {
     this.setState({ modalVisible: false });
   }

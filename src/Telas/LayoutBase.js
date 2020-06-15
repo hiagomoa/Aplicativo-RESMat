@@ -69,7 +69,7 @@ export default function Layout({ route, navigation }) {
                     <View style={{ paddingTop: 50, alignItems: 'center' }}>
                         <Plano idnumber={JSON.stringify(number)} func={setarEstado.bind(this)}
                             func1={setarEstado1.bind(this)} func2={setarEstado2.bind(this)} 
-                            func3={clearState.bind(this)} />
+                            func3={clearState.bind(this)} flagState={state} flagState1={state1} flagState2={state2}/>
                    
                         <View style={{ paddingTop: 5 }}>
                             {state1[0] == 1 && <CallInputs param={2} idescolha={state1[1]} />}

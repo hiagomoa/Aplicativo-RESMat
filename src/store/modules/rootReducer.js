@@ -20,6 +20,8 @@ import inputTextRedux3A from './inputs/inputTextRedux3/inputTextRedux3A'
 import inputTextRedux3B from './inputs/inputTextRedux3/inputTextRedux3B'
 import inputTextRedux3C from './inputs/inputTextRedux3/inputTextRedux3C'
 import inputTextRedux3D from './inputs/inputTextRedux3/inputTextRedux3D'
+import tiraPlano from './tirarPlano/tirarPlano'
+import initialState from './updateInitialState/initialState'
 
 export default combineReducers({
   numberInput,
@@ -43,5 +45,8 @@ export default combineReducers({
   inputTextRedux3B,
   inputTextRedux3C,
   inputTextRedux3D,
+  tiraPlano,
+  initialState,
+
 
 })

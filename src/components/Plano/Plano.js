@@ -9,18 +9,22 @@ import { connect } from 'react-redux';
 import BottonAdd from "./EssencialComponents/BottonAdd"
 import ModalAddForms from './EssencialComponents/ModalAddForms';
 
-const ViewDot = styled.View`
-        
+const ViewDot = styled.View` 
         position: absolute;
-        padding-left: ${props => (props.px ? props.px : '0')}px; 
-        top: ${props => (props.py ? props.py : '0')}px; 
-
+        left: ${props => (props.px ? props.px : '115')}px; 
+        bottom: ${props => (props.py ? props.py : '125')}px; 
+`;
+const Circle = styled.View`
+        width: 10;
+        height: 10;
+        border-Radius: 5;
+        background-Color: red;
 `;
 
 const Imagem = styled.Image`
-      width: ${props => (props.px ? props.px : '0')}px;
+      width: ${props => (props.px ? props.px : '170')}px;
       
-      height: ${props => (props.py ? props.py : '0')}px;
+      height: ${props => (props.py ? props.py : '170')}px;
 `;
 
 const initialState = {
@@ -35,6 +39,7 @@ const initialState = {
   flagFigura3: 0,
   modalVisible: false,
   FlagBolota: 0,
+  FlagPlano: 0,
 }
 
 class Plano extends Component {
@@ -48,8 +53,24 @@ class Plano extends Component {
 
   clearState = () => {
     this.setState({ ...initialState });
-    this.props.func3();
+    this.props.func3();//LayoutBase
+    this.handleDispatch();
+
   }
+
+  handleDispatch = () => {
+    //let valor = {
+    //  CenterX: 0,
+    //  CenterY: 0,
+    //  visibilidadeModal: false 
+    //}
+    let a = 0
+    const { dispatch } = this.props;
+      dispatch({
+        type: 'RESET',
+        a
+    })
+  };
   setarFlag = (Estado, tipo) => {
     if (tipo == 1) {
       this.setState({ flagButton1: Estado })
@@ -61,6 +82,10 @@ class Plano extends Component {
       this.setState({ flagButton3: Estado })
     }
     this.setState({ FlagBolota: 1 })
+  }
+  setarFlagPlano = () => {
+    console.log("att a flag plano");
+    this.setState({ FlagPlano: 1 })
   }
 
   setarModal = () => {
@@ -94,8 +119,8 @@ class Plano extends Component {
 
   render() {
     let posicao = this.props.EstadoInput[0];
-    let X = 0, Y = 0;
-
+    let X = false, Y = false;
+    let FlagPlano = true;
     let eixoX = 240, eixoY = 210;
 
     if (this.props.idnumber == 1) { //TRIANGULO
@@ -116,21 +141,36 @@ class Plano extends Component {
     }
 
     if (typeof posicao === 'object') {
-      X = -1 * parseInt(posicao.CenterX);
+      X = parseInt(posicao.CenterX);
       Y = parseInt(posicao.CenterY);
+      console.log("PLANO   __" + X + Y);
+      X = X + 115;
+      Y = Y + 125;
     }
-
+    if (typeof this.props.EstadoFlagPlano != 'undefined') {
+      FlagPlano = this.props.EstadoFlagPlano;
+    }
     return (
       <View style={{ height: Dimensions.get("window").height / 2, alignItems: "center" }} >
+
+        <View style={{ position: "absolute" }}>
+          {FlagPlano == true &&
+
+            < Image source={require('../../img/planoCartesiano.png')} style={{ width: 200, height: 232, paddingTop: 10 }}></Image>
+          }
+        </View>
+
+
         <View style={{ alignItems: "center" }}>
           {this.state.flagButton1 == 1 &&
             <View style={{ paddingBottom: 40 }}>
               <BottonAdd param={1} func={this.setarFlag.bind(this)} />
+
             </View>
           }
           {this.state.flagButton1 == 0 && <ModalAddForms param={1} id={this.state.id1} func={this.setarFlagFigura.bind(this)} func2={this.setarModal.bind(this)}
             func3={this.setarId.bind(this)} func4={this.setarFlag.bind(this)} func5={this.props.func.bind(this)} />}
-          {this.state.flagFigura1 === 1 && <View><Forma1 id={this.state.id1} /></View>}
+          {this.state.flagFigura1 === 1 && <Forma1 id={this.state.id1} />}
         </View>
 
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -165,14 +205,18 @@ class Plano extends Component {
 
         </View>
         <View style={{ paddingTop: 30 }}>
-          <View style={{ backgroundColor: "red", borderRadius: 20, width: 60, height: 30, alignItems: 'center' }}>
+          <View style={{ borderRadius: 20, width: 50, height: 50, alignItems: 'center' }}>
             <TouchableOpacity onPress={this.clearState}>
-              <Text style={{ fontFamily: "" }}>CLEAR</Text>
+              <Image source={require('../../img/seta_circular.png')} style={{ width: 50, height: 50 }}></Image>
             </TouchableOpacity>
           </View>
         </View>
-
-      </View>
+        {Number.isInteger(X) == true && (Number.isInteger(Y) == true &&
+          <ViewDot px={X} py={Y}>
+            <Circle />
+          </ViewDot>)
+        }
+      </View >
     );
   }
 }
@@ -182,6 +226,7 @@ export default connect(state => ({
   EstadoInputCount1: state.count1,
   EstadoInputCount2: state.count2,
   EstadoInputCount3: state.count3,
-  EstadoInputCount4: state.count4
+  EstadoInputCount4: state.count4,
+  EstadoFlagPlano: state.tiraPlano
 }))(Plano);
 

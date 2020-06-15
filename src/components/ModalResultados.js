@@ -52,12 +52,15 @@ class ModalResultados extends React.Component {
     }
 
     render() {
-let x =this.props.resultCentX;
-let xm = x.toFixed(2)
-let y =this.props.resultCentY;
-let ym = y.toFixed(2)
-let moment = this.props.resultMoment
-moment = moment.toFixed(2);
+        let x = this.props.resultCentX;
+        let xm = x.toFixed(2);
+        let y = this.props.resultCentY;
+        let ym = y.toFixed(2);
+        let momentX = this.props.resultMomentX;
+        let momentY = this.props.resultMomentY;
+
+        momentY = momentY.toFixed(2);
+        momentX = momentX.toFixed(2);
 
         return (
             <Modal
@@ -69,9 +72,10 @@ moment = moment.toFixed(2);
                 }}>
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <View style={{...styles.centeredView, flexDirection:"column"}}>
+                        <View style={{ ...styles.centeredView, flexDirection: "column" }}>
                             <Text style={{ fontSize: 20 }}> Centroide = ({xm}, {ym})</Text>
-                            <Text style={{ fontSize: 20 }}> Momento = {moment}</Text>
+                            <Text style={{ fontSize: 20 }}> Ix = {momentX}</Text>
+                            <Text style={{ fontSize: 20 }}> Iy = {momentY}</Text>
                         </View>
 
                         <View style={{ paddingTop: 40 }}>

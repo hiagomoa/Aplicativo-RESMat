@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native'
 import styled from 'styled-components/native';
+import { connect } from 'react-redux';
 
 const Touch = styled.TouchableOpacity`
   height:30px;
@@ -15,14 +16,25 @@ const Circulo = styled.View`
         justify-content:center;
 `;
 
-export default class BottonAdd extends Component {
+class BottonAdd extends Component {
+
+    SetarFlagPlano = () => {
+        let a = 0;
+        const { dispatch } = this.props;
+          dispatch({
+            type: 'ADD_FLAG_PLANO',
+            a
+        })
+      };
+
     render() {
         return (
             <View>
                 <Touch
                     onPress={() => {
                         
-                        this.props.func(0,this.props.param)
+                        this.props.func(0,this.props.param);
+                        this.SetarFlagPlano();
                     }}>
                     
                     <Circulo>
@@ -34,3 +46,5 @@ export default class BottonAdd extends Component {
         );
     }
 }
+
+export default connect()(BottonAdd)
