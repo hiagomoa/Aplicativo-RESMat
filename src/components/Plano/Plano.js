@@ -47,12 +47,36 @@ class Plano extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ...initialState
+      flagButton1: 1,
+      flagButton2: 1,
+      flagButton3: 1,
+      id1: '',
+      id2: '',
+      id3: '',
+      flagFigura1: 0,
+      flagFigura2: 0,
+      flagFigura3: 0,
+      modalVisible: false,
+      FlagBolota: 0,
+      FlagPlano: 0,
     };
   }
 
   clearState = () => {
-    this.setState({ ...initialState });
+    this.setState({
+      flagButton1: 1,
+      flagButton2: 1,
+      flagButton3: 1,
+      id1: '',
+      id2: '',
+      id3: '',
+      flagFigura1: 0,
+      flagFigura2: 0,
+      flagFigura3: 0,
+      modalVisible: false,
+      FlagBolota: 0,
+      FlagPlano: 0
+    });
     this.props.func3();//LayoutBase
     this.handleDispatch();
 
@@ -66,9 +90,9 @@ class Plano extends Component {
     //}
     let a = 0
     const { dispatch } = this.props;
-      dispatch({
-        type: 'RESET',
-        a
+    dispatch({
+      type: 'RESET',
+      a
     })
   };
   setarFlag = (Estado, tipo) => {
@@ -211,10 +235,10 @@ class Plano extends Component {
             </TouchableOpacity>
           </View>
         </View>
-        {Number.isInteger(X) == true && (Number.isInteger(Y) == true &&
+        {X!=0 ||  Y!=0 ? 
           <ViewDot px={X} py={Y}>
             <Circle />
-          </ViewDot>)
+          </ViewDot> : null
         }
       </View >
     );

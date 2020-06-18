@@ -33,6 +33,7 @@ class InputTexto extends React.Component {
     count4: 100,
   }
   handleAddCount1 = valor => {
+    console.log("`[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[  " + valor);
     const { dispatch } = this.props;
     if (valor != 'undefined') {
       dispatch({

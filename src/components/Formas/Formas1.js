@@ -33,9 +33,9 @@ const Trapezio = styled.View`
         height: 0px;
         border-bottom-width: ${props => (props.tam4 ? props.tam4 : '50')}px;/*altura*/
         border-bottom-color: #C7C7C7;
-        border-left-width: ${props => (props.tam2 ? props.tam2 : '50')}px; /*Angulo da esquerda*/
+        border-left-width:45px; /*Angulo da esquerda*/
         border-left-color: transparent;
-        border-right-width: ${props => (props.tam3 ? props.tam3 : '50')}px;/*Angulo da direita*/
+        border-right-width: 45px;/*Angulo da direita*/
         border-right-color: transparent;
         border-style: solid;
 `;
@@ -110,16 +110,16 @@ class Formas1 extends React.Component {
                 let count1 = 70, count2 = 120, count3 = 100, count4 = 100;
 
                 if (typeof this.props.estadoInputCount1 != "undefined") {
-                        count1 = this.props.estadoInputCount1;
+                        count1 =  parseInt(this.props.estadoInputCount1);
                 }
                 if (typeof this.props.estadoInputCount2 != "undefined") {
-                        count2 = this.props.estadoInputCount2;
+                        count2 =  parseInt(this.props.estadoInputCount2);
                 };
                 if (typeof this.props.estadoInputCount3 != "undefined") {
-                        count3 = this.props.estadoInputCount3;
+                        count3 =  parseInt(this.props.estadoInputCount3);
                 }
                 if (typeof this.props.estadoInputCount4 != "undefined") {
-                        count4 = this.props.estadoInputCount4;
+                        count4 =  parseInt(this.props.estadoInputCount4);
                 }
 
                 let variavel

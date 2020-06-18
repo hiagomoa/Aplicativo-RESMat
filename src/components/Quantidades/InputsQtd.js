@@ -88,11 +88,10 @@ class InputsQtd extends React.Component {
             <View style={{ flexDirection: 'column' }}>
               <View style={{ flexDirection: 'row' }}>
                 <InText count={1} texto='B'></InText>
-                <InText count={2} texto='AngEsq'></InText>
+                <InText count={2} texto='b'></InText>
               </View>
 
-              <View style={{ flexDirection: 'row' }}>
-                <InText count={3} texto='AngDir'></InText>
+              <View style={{ flexDirection: 'row',paddingTop:5 }}>
                 <InText count={4} texto='H'></InText>
               </View>
 

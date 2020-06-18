@@ -9,7 +9,7 @@ export default class CallInputs extends React.Component {
 
     render() {
         return (
-            <View style={{paddingTop: 5}}>
+            <View style={{ paddingTop: 5 }}>
                 {this.props.idescolha === '1' &&
                     <View>
                         {this.props.param == 1 &&
@@ -47,7 +47,7 @@ export default class CallInputs extends React.Component {
                     </View>
                 }
 
-                {(this.props.idescolha === '2' || this.props.idescolha === '3'||this.props.idescolha === '5') &&
+                {(this.props.idescolha === '2' || this.props.idescolha === '3' || this.props.idescolha === '5') &&
                     <View>
                         {this.props.param == 1 &&
                             <View style={{ flexDirection: 'column', alignItens: 'center' }}>
@@ -59,7 +59,7 @@ export default class CallInputs extends React.Component {
                     </View>
                 }
 
-                {(this.props.idescolha === '2' || this.props.idescolha === '3'||this.props.idescolha === '5') &&
+                {(this.props.idescolha === '2' || this.props.idescolha === '3' || this.props.idescolha === '5') &&
                     <View>
                         {this.props.param == 2 &&
                             <View style={{ flexDirection: 'column', alignItens: 'center' }}>
@@ -71,7 +71,7 @@ export default class CallInputs extends React.Component {
                     </View>
                 }
 
-                {(this.props.idescolha === '2' || this.props.idescolha === '3'||this.props.idescolha === '5') &&
+                {(this.props.idescolha === '2' || this.props.idescolha === '3' || this.props.idescolha === '5') &&
                     <View>
                         {this.props.param == 3 &&
                             <View style={{ flexDirection: 'column', alignItens: 'center' }}>
@@ -90,11 +90,10 @@ export default class CallInputs extends React.Component {
                                 <View style={{ flexDirection: 'column' }}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <InputText1 count={1} texto='B'></InputText1>
-                                        <InputText1 count={2} texto='AngEsq'></InputText1>
+                                        <InputText1 count={2} texto='b'></InputText1>
                                     </View>
 
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <InputText1 count={3} texto='AngDir'></InputText1>
+                                    <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                                         <InputText1 count={4} texto='H'></InputText1>
                                     </View>
                                 </View>
@@ -110,11 +109,10 @@ export default class CallInputs extends React.Component {
                                 <View style={{ flexDirection: 'column' }}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <InputText2 count={1} texto='B'></InputText2>
-                                        <InputText2 count={2} texto='AngEsq'></InputText2>
+                                        <InputText2 count={2} texto='b'></InputText2>
                                     </View>
 
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <InputText2 count={3} texto='AngDir'></InputText2>
+                                    <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                                         <InputText2 count={4} texto='H'></InputText2>
                                     </View>
                                 </View>
@@ -130,11 +128,10 @@ export default class CallInputs extends React.Component {
                                 <View style={{ flexDirection: 'column' }}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <InputText3 count={1} texto='B'></InputText3>
-                                        <InputText3 count={2} texto='AngEsq'></InputText3>
+                                        <InputText3 count={2} texto='b'></InputText3>
                                     </View>
 
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <InputText3 count={3} texto='AngDir'></InputText3>
+                                    <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                                         <InputText3 count={4} texto='H'></InputText3>
                                     </View>
                                 </View>

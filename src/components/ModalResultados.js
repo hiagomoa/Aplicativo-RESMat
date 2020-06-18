@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         padding: 50,
         alignItems: "center",
         width: Dimensions.get('window').width,
-        height: 200,
+        height: 250,
     },
 
     textStyle: {
@@ -72,13 +72,17 @@ class ModalResultados extends React.Component {
                 }}>
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <View style={{ ...styles.centeredView, flexDirection: "column" }}>
-                            <Text style={{ fontSize: 20 }}> Centroide = ({xm}, {ym})</Text>
-                            <Text style={{ fontSize: 20 }}> Ix = {momentX}</Text>
-                            <Text style={{ fontSize: 20 }}> Iy = {momentY}</Text>
+                        <View style={{  justifyContent: "center",
+                                        alignItems: "center",
+                                        marginTop: 22, 
+                                        flexDirection: "column" 
+                                        }}>
+                            <Text style={{ fontSize: 20 }}> Centroide = ({xm}, {ym}) m</Text>
+                            <Text style={{ fontSize: 20 }}> Ix = {momentX} m^4</Text>
+                            <Text style={{ fontSize: 20 }}> Iy = {momentY} m^4</Text>
                         </View>
 
-                        <View style={{ paddingTop: 40 }}>
+                        <View style={{ paddingTop: 20 }}>
                             <TouchableHighlight
                                 style={{ ...styles.openButton }} //cor do botao fechar
                                 onPress={() => {

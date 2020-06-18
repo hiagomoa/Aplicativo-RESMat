@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
 
 })
 
-
 const initialState={
 CenterX: 0,
 CenterY: 0,

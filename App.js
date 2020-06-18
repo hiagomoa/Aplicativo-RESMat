@@ -72,20 +72,6 @@ function CustomDrawerContent(props, navigation) {
             style={styles.quadrados} label="" onPress={() => props.navigation.navigate('hexagonoVazado2')} />
         </View>
 
-        <View style={{ paddingTop: 20 }}>
-          <DrawerItem icon={() => <Imagem link={require("./src/img/losangulo.png")}  ></Imagem>} labelIcon={{ marginRigth: -10 }}
-            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('hexagono3')} />
-        </View>
-
-        <View style={{ paddingTop: 20 }}>
-          <DrawerItem icon={() => <Imagem link={require("./src/img/losanguloVazado.png")}  ></Imagem>} labelIcon={{ marginRigth: -10 }}
-            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('hexagonoVazado3')} />
-        </View>
-
-        <View style={{ paddingTop: 20 }}>
-          <DrawerItem icon={() => <Imagem link={require("./src/img/losanguloVazado.png")}  ></Imagem>} labelIcon={{ marginRigth: -10 }}
-            style={styles.quadrados} label="" onPress={() => props.navigation.navigate('hexagonoVazado4')} />
-        </View>
 
       </View>
     </DrawerContentScrollView>
@@ -111,9 +97,6 @@ function MyDrawer() {
       <Drawer.Screen name="TrapezioVazado" component={Home} initialParams={{ number: 4 }} />
       <Drawer.Screen name="hexagono2" component={Home} initialParams={{ number: 5 }} />
       <Drawer.Screen name="hexagonoVazado2" component={Home} initialParams={{ number: 5 }} />
-      <Drawer.Screen name="hexagono3" component={Home} initialParams={{ number: 5 }} />
-      <Drawer.Screen name="hexagonoVazado3" component={Home} initialParams={{ number: 5 }} />
-      <Drawer.Screen name="hexagonoVazado4" component={Home} initialParams={{ number: 5 }} />
 
     </Drawer.Navigator>
   );

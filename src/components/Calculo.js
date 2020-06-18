@@ -40,29 +40,14 @@ class Calculo extends React.Component {
                 break;
             //hexagono
             case 5:
-                Ix = 0, 5413 * Math.pow(argu1, 4);
+                Ix = 0.5413 * Math.pow(argu1, 4);
                 Iy = Ix;
                 break;
         }
         return [Ix, Iy];
     }
 
-    CalculoMomentoTrapezio = (arg1, arg2, arg3) => { //Base Maior, altura, angulo
-        let aux;
-        let basemenor = this.RetornoBaseMenorTrapezio(arg1, arg3, arg2);
-        let basetr = (arg1 - basemenor) / 2
-        let Ixt, Iyt, Ixr, Iyr, Centroid;
-        Ixr = Ixt = (basetr * Math.pow(arg3, 3)) / 12;
-        Ixy = Iyt = (Math.pow(basetr, 3) * arg3) / 12;
-        Centroid = CentroideTrapezio(arg1, arg3, arg2);
-        Ixt = (Ixt + ((basetr / 3) + (basemenor / 2)) * Areas(4, arg1, arg2, arg3, null)) * 2;
-        //Ixr ja eh Ixt
-        Iyt = (Iyt + (Centroid[1] - (arg2 / 3) * Areas(4, arg1, arg2, arg3, null))) * 2;
-        Iyr = (Iyr + ((arg2 / 2) - Centroid[1]) * (basemenor * arg2));
 
-        console.log((Ixt + Ixr) + " " + (Iyt + Tyr));
-        return [(Ixt + Ixr), (Iyt + Tyr)];
-    }
 
     setarResultado = (resCentX, resCentY, resMomentX, resMomentY, valor) => {
 
@@ -109,25 +94,23 @@ class Calculo extends React.Component {
 
 
     //Calcula o centroide do trapezio
-    CentroideTrapezio = (b, ang, h) => {
-        let rad = (ang * Math.PI) / 180;
-        let tam = h / Math.tan(rad);
-        // ATE=area triangulo esq   ATD=area triangulo direito  AQ = area quadrado
-        let ATE, ATD, AQ;
-        ATE = (tam * h) / 2;
-        ATD = (tam * h) / 2;
-        AQ = (b - 2 * tam) * h;
-        //CTXE=centroide triangulo esquerdo em X
-        let CTXD = tam / 3;
-        let CTY = h / 3;
-        let baseMenor = b - 2 * tam;
-        CTXD = CTXD + (baseMenor / 2);
-        let CTXE = CTXD * -1;
-        let CQY = h / 2;
+    CentroideTrapezio = (B, b, h) => {
+        console.log("BASE MAIOR =  " + B);
+        console.log("BASE MEENOR =  " + b);
+        console.log("ALTURA =  " + h);
+        let tam = B - b;
+        tam = tam / 2;//base triangulo
+        let At = (tam * h) / 2;
+        let Aq = b * h;
+        let Yi = h / 3;//centroide triangulo
         let Xg = 0;
-        let Yg = ((ATE * CTY) + (ATD * CTY) + (AQ * CQY)) / (ATE + ATD + AQ);
-        return [Xg, Yg, b, h];// VetResult[Xi,Yi,TamX,TamY]
+        let Yg = ((At * Yi) + (At * Yi) + (Aq * (h / 2))) / ((At * 2) + Aq);
+
+        return [Xg, Yg, B, h];// VetResult[Xi,Yi,TamX,TamY]*/
     }
+
+
+
 
     //Calcula o valor da base menor do trapezio
     RetornoBaseMenorTrapezio = (b, ang, h) => {
@@ -135,6 +118,8 @@ class Calculo extends React.Component {
         let tam = h / Math.tan(rad);
         return b - (2 * tam);
     }
+
+
 
     //Calcula o centroide do hexagono
     centroideHexagono = (count1, count2) => {
@@ -161,12 +146,8 @@ class Calculo extends React.Component {
                 area = (Math.PI * (Math.pow((c1 / 2), 2)));
                 break;
             //trapezio
-            case 4:
-                let aux1, basemen, angrad;
-                angrad = c2 * (Math.PI / 180);
-                aux1 = (c4 / (Math.tan(angrad)));
-                basemen = (c1 - (2 * aux1));
-                area = ((c1 + basemen) * c4) / 2;
+            case 4://c1 base maior, c2 base menor, c4 altura
+                area = ((c1 + c2) * c4) / 2;
                 break;
             //hexagono
             case 5:
@@ -174,6 +155,49 @@ class Calculo extends React.Component {
                 break;
         }
         return area;
+    }
+
+    CalculoMomentoTrapezio = (arg1, arg2, arg3) => { //Base Maior, altura, base menor(ang)
+        let aux;
+        let basemenor = arg3;
+        let basetr = (arg1 - basemenor) / 2;
+        let Ixt, Iyt, Ixr, Iyr, Centroid;
+        Ixt = (basetr * Math.pow(arg2, 3)) / 36;
+        Iyt = (Math.pow(basetr, 3) * arg2) / 36;
+
+
+        Iyr = Ixr = Math.pow(arg3, 4) / 12;
+        console.log("arg1 =  " + arg1);
+        console.log("arg3 =  " + arg2);
+        console.log("ar2 =  " + arg3);
+        Centroid = this.CentroideTrapezio(arg1, arg3, arg2);
+
+        let At, Aq;
+        At = (basetr * arg2) / 2;
+        Aq = basemenor * arg2;
+
+        let Ctx, Cty, Crx, Cry;//centroid triangulo ,centroid retangulo
+        Ctx = basetr / 2;
+        Cty = arg2 / 3;
+
+        Crx = 0;
+        Cry = arg2 / 2;
+
+        let momentoT = this.CalcMomentoBase(1, basetr, arg2, null);
+        let momentoRx, momentoRy;
+        momentoRx = (arg3 * Math.pow(arg2, 3)) / 12;
+        momentoRy = (arg2 * Math.pow(arg3, 3)) / 12;
+
+        let momentoTTx, momentoTTy;
+        momentoTTx = momentoT[0] + At * Math.pow((Cty - Centroid[1]), 2);
+        momentoTTy = momentoT[1] + At * Math.pow(((Ctx+(arg3/2)) - Centroid[0]), 2);
+        console.log("TESTE MOMENTO"+momentoT[1]+" area triangulo "+ At);
+        let momentoTRx, momentoTRy;
+
+        momentoTRx = momentoRx + Aq * (Math.pow((Cry - Centroid[1]), 2));
+        momentoTRy = momentoRy + Aq * (Math.pow((Crx - Centroid[0]), 2));
+        console.log("momentos TESTE ------  "+ momentoTTx + ' ' + momentoTRx + ' ' + momentoTTy + ' ' + momentoTRy);
+        return [((2*momentoTTx) + momentoTRx), ((2*momentoTTy) + momentoTRy)];
     }
 
     //calculo final do centro de gravidade X
@@ -189,7 +213,7 @@ class Calculo extends React.Component {
     CalcDist = (Xi, Yi, Xt, Yt) => {
         //Xi e Yi sao da imagem
         //Xt e Yt sao do novo CG
-        return [(Xi - Xt),(Yi - Yt)];
+        return [(Xi - Xt), (Yi - Yt)];
     }
 
     CalcMoment = (Mix, Miy, Ai, DisX, DisY) => {
@@ -201,17 +225,17 @@ class Calculo extends React.Component {
 
     render() {
 
-        if(this.props.valor[0] == 'Object'){
-        console.log("Valor eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + this.props.valor[0].CenterX + ' ' + this.props.valor[0].CenterY);
-          
-    }
+        if (this.props.valor[0] == 'Object') {
+            console.log("Valor eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + this.props.valor[0].CenterX + ' ' + this.props.valor[0].CenterY);
+
+        }
         let count1 = 100, count2 = 200, count3 = 200, count4 = 200;
         let input1A = 0, input1B = 0, input1C = 0, input1D = 0;
         let input2A = 0, input2B = 0, input2C = 0, input2D = 0;
         let input3A = 0, input3B = 0, input3C = 0, input3D = 0;
         let x, y, x1, y1, x2, y2, x3, y3, momento = 0, momento1 = 0, momento2 = 0, momento3 = 0;
         let Xresult, Yresult, MomentoResultX, MomentoResultY;
-        let InputRedux = this.props.valor[0];  
+        let InputRedux = this.props.valor[0];
         let centerX = 0;
         let centerY = 0;
         let id = this.props.id;//figura principal do meio 
@@ -293,7 +317,6 @@ class Calculo extends React.Component {
             VetResult = this.CentroideTriangulo(count1, count2);
             VetResult[0] = 0;
             momento = this.CalcMomentoBase(1, count1, count2, count3);
-            console.log("momento figura 1  " + momento);
             AreaFig = this.Areas(parseInt(this.props.id), count1, count2, count3, count4);
 
         } else if (this.props.id == 2) {
@@ -306,14 +329,15 @@ class Calculo extends React.Component {
             VetResult = this.CentroideCirculo(count1, count2);
             VetResult[0] = 0;
             momento = this.CalcMomentoBase(3, count1, count2, count3);
-
             AreaFig = this.Areas(parseInt(this.props.id), count1, count2, count3, count4);
         } else if (this.props.id == 4) {
-            VetResult = this.CentroideTrapezio(count1, count2, count3);
+
+            VetResult = this.CentroideTrapezio(count1, count2, count4);
             VetResult[0] = 0;
-            momento = this.CalcMomentoBase(4, count1, count2, count3);
-            let b = this.RetornoBaseMenorTrapezio(count1, count2, count3);//POssivel erro nos count
+            momento = this.CalculoMomentoTrapezio(count1, count4, count2);
+            let b = this.RetornoBaseMenorTrapezio(count1, count4, count2);
             AreaFig = this.Areas(parseInt(this.props.id), count1, count2, count3, count4);
+
         } else if (this.props.id == 5) {
             VetResult = this.centroideHexagono(count1, count2);
             VetResult[0] = 0;
@@ -338,9 +362,9 @@ class Calculo extends React.Component {
             momento1 = this.CalcMomentoBase(3, input1A, input1B, input1C);
             AreaFig1 = this.Areas(parseInt(this.props.id1), input1A, input1B, input1C, input1D);
         } else if (this.props.id1 == 4) {
-            VetResult = this.CentroideTrapezio(input1A, input1B, input1C);
-            let b = this.RetornoBaseMenorTrapezio(input1A, input1B, input1C);
-            momento1 = this.CalcMomentoBase(4, input1A, input1B, input1C);
+            FlagFig1=1;
+            VetResult1 = this.CentroideTrapezio(input1A, input1B, input1D);
+            momento1 = this.CalculoMomentoTrapezio(input1A, input1D, input1B);
             AreaFig1 = this.Areas(parseInt(this.props.id1), input1A, input1B, input1C, input1D);
         } else if (this.props.id1 == 5) {
             FlagFig1 = 1;
@@ -363,10 +387,11 @@ class Calculo extends React.Component {
             FlagFig2 = 1;
             VetResult2 = this.CentroideCirculo(input2A, input2B);
             momento2 = this.CalcMomentoBase(3, input2A, input2B, input2C);
+            AreaFig2 = this.Areas(parseInt(this.props.id2), input2A, input2B, input2C, input2D);
         } else if (this.props.id2 == 4) {
-            VetResult = this.CentroideTrapezio(input2A, input2B, input2C);
-            let b = this.RetornoBaseMenorTrapezio(input2A, input2B, input2C);
-            momento = this.CalcMomentoBase(4, input2A, input2B, input2C);
+            FlagFig2=1;
+            VetResult2 = this.CentroideTrapezio(input2A, input2B, input2D);
+            momento2 = this.CalculoMomentoTrapezio(input2A, input2D, input2B);
             AreaFig2 = this.Areas(parseInt(this.props.id2), input2A, input2B, input2C, input2D);
         } else if (this.props.id2 == 5) {
             FlagFig2 = 1;
@@ -391,9 +416,9 @@ class Calculo extends React.Component {
             momento3 = this.CalcMomentoBase(3, input3A, input3B, input3C);
             AreaFig3 = this.Areas(parseInt(this.props.id3), input3A, input3B, input3C, input3D);
         } else if (this.props.id3 == 4) { //trapezio
-            VetResult = this.CentroideTrapezio(input3A, input3B, input3C);
-            let b = this.RetornoBaseMenorTrapezio(input3A, input3B, input3C);
-            momento3 = this.CalcMomentoBase(4, input3A, input3B, input3C);
+            FlagFig3=1;
+            VetResult3 = this.CentroideTrapezio(input3A, input3B, input3D);
+            momento3 = this.CalculoMomentoTrapezio(input3A, input3D, input3B);
             AreaFig3 = this.Areas(parseInt(this.props.id3), input3A, input3B, input3C, input3D);
         } else if (this.props.id3 == 5) { //hexagono
             FlagFig3 = 1;
@@ -435,10 +460,10 @@ class Calculo extends React.Component {
         ////////////////////////////////////////////////////////
         Xresult = this.CGX((AreaXi + AreaXi1 + AreaXi2 + AreaXi3), (AreaFig + AreaFig1 + AreaFig2 + AreaFig3));
         Yresult = this.CGY((AreaYi + AreaYi1 + AreaYi2 + AreaYi3), (AreaFig + AreaFig1 + AreaFig2 + AreaFig3));
-
-        if(centerX!= 0 || centerY!=0){
-            Xresult=centerX;
-            Yresult=centerY;
+        console.log("centroid figura total"+Xresult+" "+Yresult);
+        if (centerX != 0 || centerY != 0) {
+            Xresult = centerX;
+            Yresult = centerY;
         }
         //Calculo do Novo momento de inercia
         //vai precisar buscar o moemento das figuras; a distancia do CG  de cada figura com a o no GC geral; e precisaremos da area de cada figura
@@ -446,9 +471,9 @@ class Calculo extends React.Component {
         let Distancia = 0, Distancia1 = 0, Distancia2 = 0, Distancia3 = 0;
         let MomentoI = [0, 0], MomentoI1 = [0, 0], MomentoI2 = [0, 0], MomentoI3 = [0, 0];
 
-     
 
-        Distancia = this.CalcDist(Xi,Yi,Xresult, Yresult);
+
+        Distancia = this.CalcDist(Xi, Yi, Xresult, Yresult);
 
         console.log("INDIVIDUAL----- M " + momento[0] + " M1 " + momento1[0] + " M2 " + momento2[0] + " M3 " + momento3[0]);
         console.log("INDIVIDUAL----- M " + momento[1] + " M1 " + momento1[1] + " M2 " + momento2[1] + " M3 " + momento3[1]);
