@@ -38,7 +38,8 @@ class InputText2 extends React.Component {
             type: 'INPUT_TEXT_2A',
             valor
           });
-        }
+        };
+        this.SetarFlagPlano();
       };
     
       handleAddCount2 = valor => {
@@ -48,7 +49,8 @@ class InputText2 extends React.Component {
             type: 'INPUT_TEXT_2B',
             valor
           });
-        }
+        };
+        this.SetarFlagPlano();
       };
     
       handleAddCount3 = valor => {
@@ -58,7 +60,8 @@ class InputText2 extends React.Component {
             type: 'INPUT_TEXT_2C',
             valor
           });
-        }
+        };
+        this.SetarFlagPlano();
       };
     
       handleAddCount4 = valor => {
@@ -68,7 +71,17 @@ class InputText2 extends React.Component {
             type: 'INPUT_TEXT_2D',
             valor
           });
-        }
+        };
+        this.SetarFlagPlano();
+      };
+
+      SetarFlagPlano = () => {
+        let a = 0;
+        const { dispatch } = this.props;
+          dispatch({
+            type: 'ADD_FLAG_PLANO',
+            a
+        })
       };
     
 
