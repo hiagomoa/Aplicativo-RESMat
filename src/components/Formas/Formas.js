@@ -33,9 +33,9 @@ const Trapezio = styled.View`
         height: 0px;
         border-bottom-width: ${props => (props.tam4 ? props.tam4 : '50')}px;/*altura*/
         border-bottom-color: #C7C7C7;
-        border-left-width:45px; /*Angulo da esquerda*/
+        border-left-width:10px; /*Angulo da esquerda*/
         border-left-color: transparent;
-        border-right-width: 45px; /*Angulo da direita*/
+        border-right-width: 10px; /*Angulo da direita*/
         border-right-color: transparent;
         border-style: solid;
 `;

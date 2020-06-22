@@ -75,10 +75,10 @@ class ModalCentroide extends React.Component {
   }
 
   updateState=()=>{
-    console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP")
+    
     this.setState({initialState});
     this.handleAdd2(initialState); 
-    console.log("AOOOOOOOOOOBAAAAABABBABABBABABBABABABBAbaBABABba")
+    
   }
   handleAdd = valor => {
     const { dispatch } = this.props;
@@ -106,7 +106,7 @@ class ModalCentroide extends React.Component {
     })
   };
   trocaValor= estado =>{
-    console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
+ 
     this.setState({visibilidadeModal: estado})
   }
 
@@ -115,7 +115,7 @@ class ModalCentroide extends React.Component {
   }
 
   render() {
-    console.log("\n 55555555555555555  " + this.props.Flag);
+    
     if (this.props.Flag == 1){
       this.updateState();
     }

@@ -93,7 +93,6 @@ class ModalResultados extends React.Component {
                                 }}>
 
                                 <Image source={require('../img/seta_voltar.png')} style={{ height: 60, width: 60 }}></Image>
-                                {/*<Text style={styles.textStyle}>Voltar</Text>*/}
 
                             </TouchableHighlight>
                         </View>

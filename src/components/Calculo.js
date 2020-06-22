@@ -19,7 +19,7 @@ class Calculo extends React.Component {
         switch (fig) {
             //triangulo
             case 1:
-                console.log("Base " + argu1 + "altura " + argu2);
+                
                 Ix = (argu1 * Math.pow(argu2, 3)) / 36;
                 Iy = (Math.pow(argu1, 3) * argu2) / 36;
                 break;
@@ -95,9 +95,7 @@ class Calculo extends React.Component {
 
     //Calcula o centroide do trapezio
     CentroideTrapezio = (B, b, h) => {
-        console.log("BASE MAIOR =  " + B);
-        console.log("BASE MEENOR =  " + b);
-        console.log("ALTURA =  " + h);
+
         let tam = B - b;
         tam = tam / 2;//base triangulo
         let At = (tam * h) / 2;
@@ -167,9 +165,7 @@ class Calculo extends React.Component {
 
 
         Iyr = Ixr = Math.pow(arg3, 4) / 12;
-        console.log("arg1 =  " + arg1);
-        console.log("arg3 =  " + arg2);
-        console.log("ar2 =  " + arg3);
+ 
         Centroid = this.CentroideTrapezio(arg1, arg3, arg2);
 
         let At, Aq;
@@ -191,12 +187,12 @@ class Calculo extends React.Component {
         let momentoTTx, momentoTTy;
         momentoTTx = momentoT[0] + At * Math.pow((Cty - Centroid[1]), 2);
         momentoTTy = momentoT[1] + At * Math.pow(((Ctx+(arg3/2)) - Centroid[0]), 2);
-        console.log("TESTE MOMENTO"+momentoT[1]+" area triangulo "+ At);
+     
         let momentoTRx, momentoTRy;
 
         momentoTRx = momentoRx + Aq * (Math.pow((Cry - Centroid[1]), 2));
         momentoTRy = momentoRy + Aq * (Math.pow((Crx - Centroid[0]), 2));
-        console.log("momentos TESTE ------  "+ momentoTTx + ' ' + momentoTRx + ' ' + momentoTTy + ' ' + momentoTRy);
+    
         return [((2*momentoTTx) + momentoTRx), ((2*momentoTTy) + momentoTRy)];
     }
 
@@ -225,10 +221,7 @@ class Calculo extends React.Component {
 
     render() {
 
-        if (this.props.valor[0] == 'Object') {
-            console.log("Valor eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + this.props.valor[0].CenterX + ' ' + this.props.valor[0].CenterY);
 
-        }
         let count1 = 100, count2 = 200, count3 = 200, count4 = 200;
         let input1A = 0, input1B = 0, input1C = 0, input1D = 0;
         let input2A = 0, input2B = 0, input2C = 0, input2D = 0;
@@ -250,7 +243,7 @@ class Calculo extends React.Component {
         if (typeof this.props.valor[0] != "undefined") {
             centerX = parseInt(InputRedux.CenterX);
             centerY = parseInt(InputRedux.CenterY);
-            console.log("CALCULO CENTROIDE TESTE __" + this.props.valor[0]);
+
         }
 
         if (typeof this.props.estadoInputCount1[0] != "undefined") {
@@ -460,7 +453,7 @@ class Calculo extends React.Component {
         ////////////////////////////////////////////////////////
         Xresult = this.CGX((AreaXi + AreaXi1 + AreaXi2 + AreaXi3), (AreaFig + AreaFig1 + AreaFig2 + AreaFig3));
         Yresult = this.CGY((AreaYi + AreaYi1 + AreaYi2 + AreaYi3), (AreaFig + AreaFig1 + AreaFig2 + AreaFig3));
-        console.log("centroid figura total"+Xresult+" "+Yresult);
+        
         if (centerX != 0 || centerY != 0) {
             Xresult = centerX;
             Yresult = centerY;
@@ -475,36 +468,29 @@ class Calculo extends React.Component {
 
         Distancia = this.CalcDist(Xi, Yi, Xresult, Yresult);
 
-        console.log("INDIVIDUAL----- M " + momento[0] + " M1 " + momento1[0] + " M2 " + momento2[0] + " M3 " + momento3[0]);
-        console.log("INDIVIDUAL----- M " + momento[1] + " M1 " + momento1[1] + " M2 " + momento2[1] + " M3 " + momento3[1]);
 
         MomentoI = this.CalcMoment(momento[0], momento[1], AreaFig, Distancia[1], Distancia[0]);
-        console.log("Mmento principal " + MomentoI);
+        
 
         if (FlagFig1 != 0) {
             Distancia1 = this.CalcDist(Xi1, Yi1, Xresult, Yresult);
             MomentoI1 = this.CalcMoment(momento1[0], momento1[1], AreaFig1, Distancia1[1], Distancia1[0]);
-            console.log("Mmento figura cima " + MomentoI1);
+           
         }
         if (FlagFig2 != 0) {
             Distancia2 = this.CalcDist(Xi2, Yi2, Xresult, Yresult);
             MomentoI2 = this.CalcMoment(momento2[0], momento2[1], AreaFig2, Distancia2[1], Distancia2[0]);
-            console.log("Mmento figura esquerda " + MomentoI2);
+            
         }
         if (FlagFig3 != 0) {
             Distancia3 = this.CalcDist(Xi3, Yi3, Xresult, Yresult);
             MomentoI3 = this.CalcMoment(momento3[0], momento3[1], AreaFig3, Distancia3[1], Distancia3[0]);
-            console.log("Mmento figura direita " + MomentoI3);
+            
         }
-        console.log("M " + MomentoI[0] + " M1 " + MomentoI1[0] + " M2 " + MomentoI2[0] + " M3 " + MomentoI3[0]);
-        console.log("M " + MomentoI[1] + " M1 " + MomentoI1[1] + " M2 " + MomentoI2[1] + " M3 " + MomentoI3[1]);
-
+        
         MomentoResultX = MomentoI[0] + MomentoI1[0] + MomentoI2[0] + MomentoI3[0];
         MomentoResultY = MomentoI[1] + MomentoI1[1] + MomentoI2[1] + MomentoI3[1];
 
-        console.log("Momento:" + MomentoResultX + " " + MomentoResultY);
-
-        console.log("Centroid:" + Xresult + " " + Yresult);
         this.setarResultado(Xresult, Yresult, MomentoResultX, MomentoResultY, this.state.flag1);
         this.verificacaoAntiLoop(this.state.flag);
 
